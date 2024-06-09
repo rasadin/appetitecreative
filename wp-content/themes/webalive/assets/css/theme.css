@@ -14,8 +14,8 @@
     z-index: 10000;
     display: flex;
     align-items: center;
-    min-height: 60px;
-    background: #f1f1f1;
+    min-height:115px;
+	background-color: #000;
 }
 .webalive-menu-wrap {
     width: 100%;
@@ -33,6 +33,10 @@
     padding: 0;
     margin: 0;
     list-style: none;
+	border: 1px solid #fff;
+	-webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
 }
 .webalive-main-menu li {
     position: relative;
@@ -43,7 +47,24 @@
 }
 .webalive-main-menu li a {
     display: block;
-    padding: 20px 15px;
+    padding:10px 20px;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+	text-decoration:none;
+}
+.webalive-main-menu li a:hover {
+	background-color: #BF1422;
+    border-radius: 30px;
+}
+.login-menu a{
+	background-color: #BF1422;
+    border-radius: 30px;
+}
+.login-menu a:hover{
+	background-color: #fff !important;
+    border-radius: 30px;
+	color:#000
 }
 .webalive-main-menu li > .sub-menu {
     display: none;
@@ -332,3 +353,181 @@ and (max-width: 1080px) {
         visibility: hidden;
     }
 }
+
+.container {
+    max-width: 1260px !important;
+}
+
+footer.webalive-footer {
+    background-color: #141414;
+    min-height:320px;
+	padding: 114px 0 20px 0;
+}
+.foo-content-first p{
+	color:#E2D5C8;
+	font-size:48px;
+	text-transform:uppercase;
+	font-family: 'Bebas Kai' !important;
+}
+.foo-content-first strong{
+	color:#BF1422;
+}
+.get-in-touch-circle a{
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	background-color:#fff;
+	color:#000;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	font-size:32px;
+	font-weight:700;
+	text-decoration:none !important;
+	margin: 0 auto;
+	position: relative;
+}
+/*.get-in-touch-circle a:hover:before{
+	content:'';
+	position:absolute;
+	background-color:#BF1422;
+	width:100%;
+	height:100%;
+	border-radius:50%;
+}*/
+.subscripe-content .subscribe-title,
+.subscripe-content .subscribe-title p{
+	font-size:30px;
+	color:#fff;
+	line-height: 33px;
+}
+.link-info{
+	display: flex;
+    gap: 55px;
+	margin:0;
+	padding:0;
+}
+.link-info p{
+	margin:0 0 10px 0;
+	font-weight:600;
+	color:#F9FAFB;
+	text-transform:uppercase;
+	font-family: "Inter", sans-serif;
+}
+.link-info{
+	margin:0;
+	padding:0;
+}
+.link-info li{
+	list-style-type:none;
+}
+.link-info li a{
+	color:#F9FAFB;
+	font-size:17px;
+	text-transform:Lowercase;
+	font-family: "Inter", sans-serif;
+	font-weight: 400;
+}
+.bottom-foo-comtent{
+	padding-top:70px;
+}
+.copy-right-content p{
+	color:#F9FAFB;
+	margin-bottom:5px;
+	line-height: 28px;
+	font-family: "Inter", sans-serif;
+	font-weight:600;
+}
+
+.menu-social-media-container ul{
+	margin:0;
+	padding:0;
+	display: flex;
+    gap:12px;
+	justify-content: right;
+}
+.menu-social-media-container ul li{
+	list-style-type:none;
+}
+.menu-social-media-container ul li a{
+	color:#fff;
+	font-size:33px;
+}
+.menu-social-media-container ul li a:hover{
+	color:#BF1422;
+}
+.faq-accordin p{
+	color:#fff;
+	font-size:18px;
+	line-height: 33px;
+}
+.faq-accordin a{
+	text-decoration:none !important;
+}
+.faq-accordin .elementor-accordion .elementor-accordion-item {
+    border: 1px solid rgba(255, 255, 255, 0.3)!important;
+	border-left:0px !important;
+	border-right:0px !important;
+}
+.faq-accordin .elementor-toggle .elementor-tab-title {
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    padding: 23px 0px;
+}
+.faq-accordin .elementor-toggle .elementor-tab-content {
+    padding: 15px 0px;
+    display: none;
+}
+.faq-accordin .elementor-toggle-icon svg {
+    margin-top:14px !important;
+}
+.case-study-list-btn ul li a{
+	background-color:#EDEDED !important;
+	-webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+	text-decoration:none !important;
+	font-size:18px;
+	color:#000;
+	padding: 5px 18px;
+}
+.case-study-list-btn ul li a:hover,
+.case-study-list-btn ul li:first-child a{
+	background-color:#BF1422!important;
+	
+}
+.case-study-list-btn ul li a:hover span,
+.case-study-list-btn ul li:first-child a span{
+	color:#fff;
+}
+.case-study-list-btn .elementor-icon-list-items.elementor-inline-items {
+    gap: 14px 0px;
+}
+.heilight-color span{
+	color:#BF1422;
+}
+.scroll-list-item{
+	background-color:#ffffff;
+	border-radius:32px;
+}
+.scroll-list-item ul{
+	display: flex;
+    gap: 39px;
+    padding: 10px;
+    margin: 0;
+}
+
+/*marquee css start*/
+.marquee-inner {
+  display: block;
+  width: 200%;
+  margin: 70px 0;
+  position: absolute;
+  animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+/*marquee css end*/

@@ -54,7 +54,90 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+/*font name*/
+.titillium-web-extralight {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
 
+.titillium-web-light {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.titillium-web-regular {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.titillium-web-semibold {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.titillium-web-bold {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.titillium-web-black {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.titillium-web-extralight-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.titillium-web-light-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.titillium-web-regular-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.titillium-web-semibold-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.titillium-web-bold-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+    font-family: 'Bebas Kai';
+    src: url('./assets/fonts/BebasKai.eot');
+    src: url('./assets/fonts/BebasKai.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/BebasKai.woff2') format('woff2'),
+        url('./assets/fonts/BebasKai.woff') format('woff'),
+        url('./assets/fonts/BebasKai.ttf') format('truetype'),
+        url('./assets/fonts/BebasKai.svg#BebasKai') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+.bebas-kai-font .elementor-heading-title{
+	  font-family: 'Bebas Kai' !important;
+}
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -93,7 +176,7 @@ html{
 	color: #000000;
 	font-size: 18px;
 	line-height: 25px;
-	font-family: 'Poppins', sans-serif !important;
+	font-family: "Titillium Web", sans-serif!important;
 }
 
 /* Sections
@@ -417,7 +500,7 @@ select,
 optgroup,
 textarea {
 	color: #404040;
-	font-family: 'Poppins', sans-serif;
+	font-family: "Titillium Web", sans-serif !important;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -430,7 +513,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: #000000;
 	line-height: 1.4;
 	font-weight: 700;
-	font-family: 'Poppins', sans-serif !important;
+	font-family: "Titillium Web", sans-serif !important;
 }
 
 h1 {
@@ -471,7 +554,7 @@ p {
 	font-size: 16px;
 	line-height: 150%;
 	font-weight: 400;
-	font-family: 'Poppins', sans-serif !important;
+	font-family: "Titillium Web", sans-serif !important;
 }
 
 dfn, cite, em, i {
@@ -486,7 +569,7 @@ blockquote {
 	background: #FFF4DC;
 	border: 1.5px dashed #FEBA44;
 	border-radius:10px;
-	font-family: 'Poppins', sans-serif !important;
+	font-family: "Titillium Web", sans-serif !important;
 	position: relative;
 	margin: 20px 0px;
 }
@@ -506,7 +589,7 @@ address {
 
 pre {
 	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-family: "Titillium Web", sans-serif !important;
 	font-size: 15px;
 	font-size: 0.9375rem;
 	line-height: 1.6;
@@ -533,7 +616,7 @@ table, th, td {
 	font-size: 16px;
 	line-height: 29px;
 	font-weight: normal;
-	font-family: 'Poppins', sans-serif !important;
+    font-family: "Titillium Web", sans-serif !important;
 	padding: 6px 15px;
 }
 table tr:nth-child(2n) {
@@ -544,7 +627,7 @@ table tr:nth-child(2n) {
 }
 
 code, kbd, tt, var {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-family: "Titillium Web", sans-serif !important;
 	font-size: 15px;
 	font-size: 0.9375rem;
 }
@@ -1103,6 +1186,3 @@ object {
 	display: block;
 }
 
-body{
-	background-color:#000;
-}
