@@ -518,7 +518,7 @@ footer.webalive-footer {
     margin: 0;
 }
 
-/*marquee css start*/
+/*marquee css start
 .marquee-inner {
   display: block;
   width: 200%;
@@ -526,8 +526,9 @@ footer.webalive-footer {
   position: absolute;
   animation: marquee 20s linear infinite;
 }
+
 @keyframes marquee {
   0% { left: 0; }
   100% { left: -100%; }
 }
-/*marquee css end*/
+marquee css end*/
