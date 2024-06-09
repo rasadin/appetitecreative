@@ -23,27 +23,28 @@
 		<!-- Widgets -->
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 col-sm-6">
-					<?php dynamic_sidebar( 'footer-widget-1' ); ?>
+				<div class="col-md-5 col-sm-6 foo-content-colume-1">
+					<div class="foo-content-first"><?php dynamic_sidebar( 'footer-widget-1' ); ?></div>
 				</div>
-				<div class="col-md-3 col-sm-6">
-					<?php dynamic_sidebar( 'footer-widget-2' ); ?>
+				<div class="col-md-3 col-sm-6 foo-colume-2">
+					<div class="get-in-touch-circle"><?php dynamic_sidebar( 'footer-widget-2' ); ?></div>
 				</div>
-				<div class="col-md-3 col-sm-6">
-					<?php dynamic_sidebar( 'footer-widget-3' ); ?>
+				<div class="col-md-4 col-sm-6 foo-colume-3">
+					<div class="subscripe-content"><?php dynamic_sidebar( 'footer-widget-3' ); ?></div>
 				</div>
-				<div class="col-md-3 col-sm-6">
-					<?php dynamic_sidebar( 'footer-widget-4' ); ?>
-				</div>
+				
 			</div>
 		</div>
 		<!-- Copyright -->
-		<div class="container">
+		<div class="container bottom-foo-comtent">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-2 copy-right-content">
 					<?php dynamic_sidebar( 'copyright-widget-1' ); ?>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-10 col-sm-6">
+					<?php dynamic_sidebar( 'footer-widget-4' ); ?>
+				</div>
+				<div class="col-md-10 col-sm-6">
 					<?php dynamic_sidebar( 'copyright-widget-2' ); ?>
 				</div>
 			</div>
