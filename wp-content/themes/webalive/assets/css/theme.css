@@ -517,7 +517,10 @@ footer.webalive-footer {
     padding: 10px;
     margin: 0;
 }
-<<<<<<< HEAD
+.testimonial-content .premium-testimonial-text-wrapper{
+	max-width:800px;
+	margin:0 auto;
+}
 .testimonial-content .premium-testimonial-text-wrapper p{
 	font-size:60px;
 	line-height:61px;
@@ -525,11 +528,60 @@ footer.webalive-footer {
 .testimonial-content .premium-testimonial-heading{
 	display:none;
 }
+.testimonial-content .premium-testimonial-job{
+	display:none;
+}
+.testimonial-content .premium-testimonial-person-name{
+	font-size:21px;
+	font-family: "Inter", sans-serif;
+	font-weight:400;
+}
+.testimonial-content a.carousel-arrow{
+	width: 69px !important;
+    height: 59px !important;
+    background: none !important;
+}
+.testimonial-content i.fas.fa-angle-left {
+    background: url(../img/left-arrow.svg) no-repeat center;
+    width: 69px;
+    height: 59px;
+    display: block;
+    font-size: 0;
+}
+.testimonial-content i.fas.fa-angle-right {
+    background: url(../img/right-arrow.svg) no-repeat center;
+    width: 69px;
+    height: 59px;
+    display: block;
+    font-size: 0;
+}
+.slider-section{
+	overflow-x:hidden;
+}
+.slider-section .ekit-testimonial--avatar {
+    margin-bottom: 20px;
+	display:none;
+}
+.slider-section .elementskit-author-name{
+	font-size:105px !important;
+	font-family: 'Bebas Kai' !important;
+	color:#131212;
+}
+.slider-section .elementskit-author-des{
+	font-size:40px !important;
+	font-family: 'Bebas Kai' !important;
+	color:#131212 !important;
+}
+.slider-section .elementskit-commentor-content p{
+	font-size:24px;
+	line-height:32px;
+	color:#131212 !important;
+}
+.slider-section .elementskit-single-testimonial-slider {
+    padding: 40px;
+    display: block;
+}
 /*marquee css start
-=======
-
-/*marquee css start*/
->>>>>>> aa359b1eb59fa050096f00c63c9da574bf69fbf4
 .marquee-inner {
   display: block;
   width: 200%;
@@ -537,16 +589,9 @@ footer.webalive-footer {
   position: absolute;
   animation: marquee 20s linear infinite;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> aa359b1eb59fa050096f00c63c9da574bf69fbf4
 @keyframes marquee {
   0% { left: 0; }
   100% { left: -100%; }
 }
-<<<<<<< HEAD
 marquee css end*/
-=======
-/*marquee css end*/
->>>>>>> aa359b1eb59fa050096f00c63c9da574bf69fbf4
