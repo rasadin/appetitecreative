@@ -517,7 +517,13 @@ footer.webalive-footer {
     padding: 10px;
     margin: 0;
 }
-
+.testimonial-content .premium-testimonial-text-wrapper p{
+	font-size:60px;
+	line-height:61px;
+}
+.testimonial-content .premium-testimonial-heading{
+	display:none;
+}
 /*marquee css start
 .marquee-inner {
   display: block;
