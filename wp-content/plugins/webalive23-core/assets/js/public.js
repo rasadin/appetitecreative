@@ -2,19 +2,74 @@
 (function ($) {
     "use strict";
 
+    // var testimonialTextSlider = function ($scope, $) {
+    //     $(document).ready(function () {
+    //         var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
+
+    //         var controller = new ScrollMagic.Controller();
+
+    //         var tween = gsap.timeline()
+    //             .fromTo($boxes.eq(0), { x: '20vw' }, { x: '-50vw', ease: 'none' }, 0)
+    //             .fromTo($boxes.eq(1), { x: '25vw' }, { x: '-50vw', ease: 'none' }, 0)
+    //             .fromTo($boxes.eq(2), { x: '30vw' }, { x: '-50vw', ease: 'none' }, 0);
+
+    //         new ScrollMagic.Scene({
+    //             triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
+    //             triggerHook: 0.9,
+    //             duration: '100%'
+    //         })
+    //             .setTween(tween)
+    //             .addTo(controller);
+    //     });
+    // };
+
+
     var testimonialTextSlider = function ($scope, $) {
         $(document).ready(function () {
             var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
+    
+            var controller = new ScrollMagic.Controller();
+    
+            var gap = 5; // Define the fixed gap in vw (viewport width)
+            
+            // Calculate initial and final positions for each box
+            var initialPositions = ['20vw', '25vw', '30vw'];
+            var finalPosition = '-50vw';
+    
+            var tween = gsap.timeline();
+    
+            // Create tween animations for each box with a fixed gap
+            $boxes.each(function(index) {
+                var initialPosition = parseFloat(initialPositions[index]) + (index * gap) + 'vw';
+                tween.fromTo($(this), { x: initialPosition }, { x: finalPosition, ease: 'none' }, 0);
+            });
+    
+            new ScrollMagic.Scene({
+                triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
+                triggerHook: 0.9,
+                duration: '100%'
+            })
+            .setTween(tween)
+            .addTo(controller);
+        });
+    };
+    
+
+
+
+    var boxAnimation2 = function ($scope, $) {
+        $(document).ready(function () {
+            var $box1 = $scope.find('.box1');
+            var $box3 = $scope.find('.box3');
 
             var controller = new ScrollMagic.Controller();
 
             var tween = gsap.timeline()
-                .fromTo($boxes.eq(0), { x: '20vw' }, { x: '-50vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(1), { x: '25vw' }, { x: '-50vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(2), { x: '30vw' }, { x: '-50vw', ease: 'none' }, 0);
+                .fromTo($box1, {x: '10vw'}, {x: '-15vw', ease: 'none'}, 0)
+                .fromTo($box3, {x: '-10vw'}, {x: '15vw', ease: 'none'}, 0);
 
             new ScrollMagic.Scene({
-                triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
+                triggerElement: $box3[0], // Use the first DOM element from the jQuery object
                 triggerHook: 0.9,
                 duration: '100%'
             })
@@ -23,84 +78,63 @@
         });
     };
 
-    // var boxAnimation2 = function ($scope, $) {
-    //     $(document).ready(function () {
-    //         var $box1 = $scope.find('.box1');
-    //         var $box3 = $scope.find('.box3');
+    var textLoop = function ($scope, $) {
+        $(document).ready(function () {
+            var $scrollContent = $scope.find('.loop-content');
+            var $scrollItems = $scope.find('.loop-item');
+            var totalWidth = 0;
 
-    //         var controller = new ScrollMagic.Controller();
+            // Calculate total width of all items
+            $scrollItems.each(function() {
+                totalWidth += $(this).outerWidth(true);
+            });
 
-    //         var tween = gsap.timeline()
-    //             .fromTo($box1, {x: '10vw'}, {x: '-15vw', ease: 'none'}, 0)
-    //             .fromTo($box3, {x: '-10vw'}, {x: '15vw', ease: 'none'}, 0);
+            // Duplicate the items for seamless scrolling
+            $scrollContent.append($scrollItems.clone());
 
-    //         new ScrollMagic.Scene({
-    //             triggerElement: $box3[0], // Use the first DOM element from the jQuery object
-    //             triggerHook: 0.9,
-    //             duration: '100%'
-    //         })
-    //             .setTween(tween)
-    //             .addTo(controller);
-    //     });
-    // };
+            // Set the width of the scroll-content
+            $scrollContent.width(totalWidth * 2);
 
-    // var textLoop = function ($scope, $) {
-    //     $(document).ready(function () {
-    //         var $scrollContent = $scope.find('.loop-content');
-    //         var $scrollItems = $scope.find('.loop-item');
-    //         var totalWidth = 0;
+            // Adjust the animation duration based on total width
+            var animationDuration = totalWidth / 50; // Adjust this ratio as needed
 
-    //         // Calculate total width of all items
-    //         $scrollItems.each(function() {
-    //             totalWidth += $(this).outerWidth(true);
-    //         });
-
-    //         // Duplicate the items for seamless scrolling
-    //         $scrollContent.append($scrollItems.clone());
-
-    //         // Set the width of the scroll-content
-    //         $scrollContent.width(totalWidth * 2);
-
-    //         // Adjust the animation duration based on total width
-    //         var animationDuration = totalWidth / 50; // Adjust this ratio as needed
-
-    //         // Initialize GSAP animation
-    //         gsap.to($scrollContent, {
-    //             x: -totalWidth,
-    //             duration: animationDuration,
-    //             ease: 'none',
-    //             repeat: -1
-    //         });
-    //     });
-    // };
+            // Initialize GSAP animation
+            gsap.to($scrollContent, {
+                x: -totalWidth,
+                duration: animationDuration,
+                ease: 'none',
+                repeat: -1
+            });
+        });
+    };
 
 
 
-    // var gridAnimation = function ($scope, $) {
-    //     $(document).ready(function () {
-    //         // Ensure elements are scoped within $scope
-    //         var $box1 = $scope.find('.box1');
-    //         var $box2 = $scope.find('.box2');
-    //         var $box3 = $scope.find('.box3');
-    //         var $box4 = $scope.find('.box4');
+    var gridAnimation = function ($scope, $) {
+        $(document).ready(function () {
+            // Ensure elements are scoped within $scope
+            var $box1 = $scope.find('.box1');
+            var $box2 = $scope.find('.box2');
+            var $box3 = $scope.find('.box3');
+            var $box4 = $scope.find('.box4');
 
-    //         var controller = new ScrollMagic.Controller();
+            var controller = new ScrollMagic.Controller();
 
-    //         var tween = gsap.timeline()
-    //             .fromTo($box1, { x: '2vw' }, { x: '-15vw', ease: 'none' }, 0)
-    //             .fromTo($box3, { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0)
-    //             .fromTo($box2, { x: '-2vw' }, { x: '15vw', ease: 'none' }, 0)
-    //             .fromTo($box4, { x: '-2vw' }, { x: '10vw', ease: 'none' }, 0);
+            var tween = gsap.timeline()
+                .fromTo($box1, { x: '2vw' }, { x: '-15vw', ease: 'none' }, 0)
+                .fromTo($box3, { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0)
+                .fromTo($box2, { x: '-2vw' }, { x: '15vw', ease: 'none' }, 0)
+                .fromTo($box4, { x: '-2vw' }, { x: '10vw', ease: 'none' }, 0);
 
-    //         new ScrollMagic.Scene({
-    //             triggerElement: $box3[0], // Use the third box as the trigger element
-    //             triggerHook: 0.9,
-    //             duration: '100%'
-    //         })
-    //             .setTween(tween)
-    //             .addTo(controller);
-    //     });
-    // };
+            new ScrollMagic.Scene({
+                triggerElement: $box3[0], // Use the third box as the trigger element
+                triggerHook: 0.9,
+                duration: '100%'
+            })
+                .setTween(tween)
+                .addTo(controller);
+        });
+    };
 
 
     $(window).on('elementor/frontend/init', function () {
