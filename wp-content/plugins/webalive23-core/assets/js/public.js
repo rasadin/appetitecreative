@@ -24,38 +24,33 @@
     // };
 
 
+
     var testimonialTextSlider = function ($scope, $) {
         $(document).ready(function () {
             var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
     
             var controller = new ScrollMagic.Controller();
     
-            var gap = 5; // Define the fixed gap in vw (viewport width)
-            
-            // Calculate initial and final positions for each box
-            var initialPositions = ['20vw', '25vw', '30vw'];
-            var finalPosition = '-50vw';
+            // Set initial positions to maintain a fixed gap
+            $boxes.eq(0).css('left', '0vw');
+            $boxes.eq(1).css('left', '20vw');
+            $boxes.eq(2).css('left', '40vw');
     
-            var tween = gsap.timeline();
-    
-            // Create tween animations for each box with a fixed gap
-            $boxes.each(function(index) {
-                var initialPosition = parseFloat(initialPositions[index]) + (index * gap) + 'vw';
-                tween.fromTo($(this), { x: initialPosition }, { x: finalPosition, ease: 'none' }, 0);
-            });
+            var tween = gsap.timeline()
+                .fromTo($boxes, { x: '0vw' }, { x: '-70vw', ease: 'none', stagger: 0 }, 0);
     
             new ScrollMagic.Scene({
                 triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
                 triggerHook: 0.9,
                 duration: '100%'
             })
-            .setTween(tween)
-            .addTo(controller);
+                .setTween(tween)
+                .addTo(controller);
         });
     };
     
 
-
+    
 
     var boxAnimation2 = function ($scope, $) {
         $(document).ready(function () {
