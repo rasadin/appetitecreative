@@ -120,7 +120,7 @@ class Widget_testimonial_Text_Carousel extends Widget_Base
 
                 <?php $counter = 1;
                 foreach ($marco['hero_slides'] as $slide) { ?>
-                    <div class="scroll-box box<?= $counter ?>  col">
+                    <div class="scroll-box box<?= $counter ?> ">
                         <div class="card">
                             <!-- <img src="<?php //echo $slide['image']['url']; ?>" class="card-img-top" alt="..."> -->
                             <div class="card-body">
