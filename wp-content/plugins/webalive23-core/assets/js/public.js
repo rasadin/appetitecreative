@@ -31,12 +31,10 @@
     
             var controller = new ScrollMagic.Controller();
     
-            var gap = 5; // Define a fixed gap in vw units
-    
             var tween = gsap.timeline()
-                .fromTo($boxes.eq(0), { x: '20vw' }, { x: `calc(-50vw - ${gap * 0}vw)`, ease: 'none' }, 0)
-                .fromTo($boxes.eq(1), { x: '25vw' }, { x: `calc(-50vw - ${gap * 1}vw)`, ease: 'none' }, 0)
-                .fromTo($boxes.eq(2), { x: '30vw' }, { x: `calc(-50vw - ${gap * 2}vw)`, ease: 'none' }, 0);
+                .fromTo($boxes.eq(0), { x: '20vw' }, { x: '-50vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(1), { x: '30vw' }, { x: '-40vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(2), { x: '40vw' }, { x: '-30vw', ease: 'none' }, 0);
     
             new ScrollMagic.Scene({
                 triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
