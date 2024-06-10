@@ -57,14 +57,24 @@ class Widget_Box_animation_2 extends Widget_Base
             ]
         );
 
+
         $repeater->add_control(
-            'description', [
-                'label' => __('Description', 'webalive23-core'),
-                'type' => \Elementor\Controls_Manager::WYSIWYG,
-                'default' => __('Enter Text Here', 'webalive23-core'),
+            'link', [
+                'label' => __('Link', 'webalive23-core'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Enter Link Here', 'webalive23-core'),
                 'label_block' => true,
             ]
         );
+
+        // $repeater->add_control(
+        //     'description', [
+        //         'label' => __('Description', 'webalive23-core'),
+        //         'type' => \Elementor\Controls_Manager::WYSIWYG,
+        //         'default' => __('Enter Text Here', 'webalive23-core'),
+        //         'label_block' => true,
+        //     ]
+        // );
 
         $repeater->add_control(
             'image', [
@@ -105,18 +115,21 @@ class Widget_Box_animation_2 extends Widget_Base
 
         ?>
         <!-- Add Markup Starts -->
-        <div class="scroll-container ">
+        <div class="scroll-container img-con">
             <div class="scroll-content row">
 
                 <?php $counter = 1;
                 foreach ($marco['hero_slides'] as $slide) { ?>
                     <div class="scroll-box box<?= $counter ?>  col">
-                        <div class="card" style="width: 18rem;">
-                            <img src="<?php echo $slide['image']['url']; ?>" class="card-img-top" alt="...">
+                        <div class="card img-card" style="width: 18rem;">
+                            
+                        <a href="<?php echo $slide['link']; ?> " class="go-link"><?php echo $slide['title']; ?> </a>
+
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $slide['title']; ?> </h5>
-                                <p class="card-text"><?php echo $slide['description']; ?></p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                
+                                <img src="<?php echo $slide['image']['url']; ?>" class="card-img-top" alt="...">
+                                
                             </div>
                         </div>
                     </div>
