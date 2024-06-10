@@ -98,12 +98,12 @@ class Widget_Grid_Animation extends Widget_Base
         ?>
         <!-- Add Markup Starts -->
 
-        <div class="row row-cols-2 mb-4">
+        <div class="row row-cols-2 mb-4 par-sec">
             <?php $counter = 1;
             foreach ($marco['hero_slides'] as $slide) { ?>
                 <div class="col-md-6 box<?=$counter?>">
-                    <h2><?php echo $slide['title']; ?><?=$counter?></h2>
-                    <p><?php echo $slide['description']; ?></p>
+                    <h2 class="title"><?php echo $slide['title']; ?></h2>
+                    <div class="dis"><?php echo $slide['description']; ?></div>
                 </div>
                 <?php
                 $counter = $counter + 1;
