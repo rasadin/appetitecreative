@@ -627,17 +627,61 @@ footer.webalive-footer {
     justify-content: center;
     align-items: center;
 }
-/*marquee css start
-.marquee-inner {
-  display: block;
-  width: 200%;
-  margin: 70px 0;
-  position: absolute;
-  animation: marquee 20s linear infinite;
+body.home {
+	overflow-x:hidden;
 }
-
-@keyframes marquee {
-  0% { left: 0; }
-  100% { left: -100%; }
+.scroll-content.row {
+    gap: 96px;
+    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-marquee css end*/
+.scroll-container .scroll-box {
+    min-width: 425px;
+    width: 100%;
+}
+.scroll-container .card-number {
+    font-size: 105px !important;
+    font-family: 'Bebas Kai' !important;
+    color: #131212;
+	line-height: 125px;
+}
+.scroll-container .card-title{
+    font-size: 40px !important;
+    font-family: 'Bebas Kai' !important;
+    color: #131212 !important;
+    line-height: 40px;
+}
+.scroll-container .card-text p {
+    font-size: 24px;
+    line-height: 32px;
+    color: #131212 !important;
+}
+.scroll-container .card {
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0,0,0,.125);
+    border-radius:0px;
+	min-height: 599px;
+}
+.elementor-widget-grid-animation .col-md-6{
+	background-color: #FFFFFF;
+	padding:40px;
+	margin-bottom: 27px;
+}
+.elementor-widget-grid-animation h2{
+    color: #000000;
+    font-family: 'Bebas Kai' !important;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 48px;
+}
+.elementor-widget-grid-animation .dis {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+}
