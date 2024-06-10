@@ -32,9 +32,9 @@
             var controller = new ScrollMagic.Controller();
     
             // Set initial positions to maintain a fixed gap
-            $boxes.eq(0).css('left', '0vw');
-            $boxes.eq(1).css('left', '20vw');
-            $boxes.eq(2).css('left', '40vw');
+            $boxes.eq(0).css('left', '20vw');
+            $boxes.eq(1).css('left', '25vw');
+            $boxes.eq(2).css('left', '30vw');
     
             var tween = gsap.timeline()
                 .fromTo($boxes, { x: '0vw' }, { x: '-70vw', ease: 'none', stagger: 0 }, 0);
