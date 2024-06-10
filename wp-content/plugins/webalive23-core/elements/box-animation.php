@@ -115,7 +115,7 @@ class Widget_Box_animation_2 extends Widget_Base
 
         ?>
         <!-- Add Markup Starts -->
-        <div class="scroll-container img-con">
+        <div class="scroll-container-img img-con">
             <div class="scroll-content row">
 
                 <?php $counter = 1;
