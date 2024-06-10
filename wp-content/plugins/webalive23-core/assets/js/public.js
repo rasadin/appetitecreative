@@ -32,9 +32,9 @@
             var controller = new ScrollMagic.Controller();
     
             var tween = gsap.timeline()
-                .fromTo($boxes.eq(0), { x: '20vw' }, { x: '-50vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(1), { x: '30vw' }, { x: '-40vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(2), { x: '40vw' }, { x: '-30vw', ease: 'none' }, 0);
+                .fromTo($boxes.eq(0), { x: '10vw' }, { x: '-30vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(1), { x: '15vw' }, { x: '-25vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(2), { x: '20vw' }, { x: '-20vw', ease: 'none' }, 0);
     
             new ScrollMagic.Scene({
                 triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
