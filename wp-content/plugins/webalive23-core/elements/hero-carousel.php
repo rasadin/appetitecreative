@@ -48,6 +48,16 @@ class Widget_testimonial_Text_Carousel extends Widget_Base
         );
 
         $repeater = new \Elementor\Repeater();
+
+        $repeater->add_control(
+            'number', [
+                'label' => __('Number', 'webalive23-core'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('Enter Number Here', 'webalive23-core'),
+                'label_block' => true,
+            ]
+        );
+
         $repeater->add_control(
             'title', [
                 'label' => __('Title', 'webalive23-core'),
@@ -66,13 +76,13 @@ class Widget_testimonial_Text_Carousel extends Widget_Base
             ]
         );
 
-        $repeater->add_control(
-            'image', [
-                'label' => __('Image', 'webalive23-core'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'label_block' => true,
-            ]
-        );
+        // $repeater->add_control(
+        //     'image', [
+        //         'label' => __('Image', 'webalive23-core'),
+        //         'type' => \Elementor\Controls_Manager::MEDIA,
+        //         'label_block' => true,
+        //     ]
+        // );
 
 
         $this->add_control(
@@ -112,11 +122,12 @@ class Widget_testimonial_Text_Carousel extends Widget_Base
                 foreach ($marco['hero_slides'] as $slide) { ?>
                     <div class="scroll-box box<?= $counter ?>  col">
                         <div class="card" style="width: 18rem;">
-                            <img src="<?php echo $slide['image']['url']; ?>" class="card-img-top" alt="...">
+                            <!-- <img src="<?php //echo $slide['image']['url']; ?>" class="card-img-top" alt="..."> -->
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $slide['title']; ?> </h5>
-                                <p class="card-text"><?php echo $slide['description']; ?></p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div class="card-number"><?php echo $slide['number']; ?> </div>
+                                <div class="card-title"><?php echo $slide['title']; ?> </div>
+                                <div class="card-text"><?php echo $slide['description']; ?></div>
+                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                             </div>
                         </div>
                     </div>
