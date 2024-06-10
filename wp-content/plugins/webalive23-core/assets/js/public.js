@@ -2,43 +2,17 @@
 (function ($) {
     "use strict";
 
-    // var testimonialTextSlider = function ($scope, $) {
-    //     $(document).ready(function () {
-    //         var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
-
-    //         var controller = new ScrollMagic.Controller();
-
-    //         var tween = gsap.timeline()
-    //             .fromTo($boxes.eq(0), { x: '20vw' }, { x: '-50vw', ease: 'none' }, 0)
-    //             .fromTo($boxes.eq(1), { x: '25vw' }, { x: '-50vw', ease: 'none' }, 0)
-    //             .fromTo($boxes.eq(2), { x: '30vw' }, { x: '-50vw', ease: 'none' }, 0);
-
-    //         new ScrollMagic.Scene({
-    //             triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
-    //             triggerHook: 0.9,
-    //             duration: '100%'
-    //         })
-    //             .setTween(tween)
-    //             .addTo(controller);
-    //     });
-    // };
-
-
-
     var testimonialTextSlider = function ($scope, $) {
         $(document).ready(function () {
             var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
-    
+
             var controller = new ScrollMagic.Controller();
-    
-            // Set initial positions to maintain a fixed gap
-            $boxes.eq(0).css('left', '20vw');
-            $boxes.eq(1).css('left', '25vw');
-            $boxes.eq(2).css('left', '30vw');
-    
+
             var tween = gsap.timeline()
-                .fromTo($boxes, { x: '0vw' }, { x: '-70vw', ease: 'none', stagger: 0 }, 0);
-    
+                .fromTo($boxes.eq(0), { x: '20vw' }, { x: '-50vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(1), { x: '25vw' }, { x: '-50vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(2), { x: '30vw' }, { x: '-50vw', ease: 'none' }, 0);
+
             new ScrollMagic.Scene({
                 triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
                 triggerHook: 0.9,
@@ -48,9 +22,6 @@
                 .addTo(controller);
         });
     };
-    
-
-    
 
     var boxAnimation2 = function ($scope, $) {
         $(document).ready(function () {
