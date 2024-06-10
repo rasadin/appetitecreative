@@ -1,6 +1,8 @@
 /*Laptop*/
 @media only screen and (max-width:1440px) {
-
+.slider-section {
+    padding-left:200px !important;
+}
 }
 /*Laptop*/
 @media only screen and (max-width:1366px) {
