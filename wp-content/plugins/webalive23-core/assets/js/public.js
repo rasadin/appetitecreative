@@ -2,26 +2,26 @@
 (function ($) {
     "use strict";
 
-    var testimonialTextSlider = function ($scope, $) {
-        $(document).ready(function () {
-            var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
+    // var testimonialTextSlider = function ($scope, $) {
+    //     $(document).ready(function () {
+    //         var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
 
-            var controller = new ScrollMagic.Controller();
+    //         var controller = new ScrollMagic.Controller();
 
-            var tween = gsap.timeline()
-                .fromTo($boxes.eq(0), { x: '5vw' }, { x: '-60vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(1), { x: '10vw' }, { x: '-55vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(2), { x: '15vw' }, { x: '-50vw', ease: 'none' }, 0);
+    //         var tween = gsap.timeline()
+    //             .fromTo($boxes.eq(0), { x: '5vw' }, { x: '-60vw', ease: 'none' }, 0)
+    //             .fromTo($boxes.eq(1), { x: '10vw' }, { x: '-55vw', ease: 'none' }, 0)
+    //             .fromTo($boxes.eq(2), { x: '15vw' }, { x: '-50vw', ease: 'none' }, 0);
 
-            new ScrollMagic.Scene({
-                triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
-                triggerHook: 0.9,
-                duration: '100%'
-            })
-                .setTween(tween)
-                .addTo(controller);
-        });
-    };
+    //         new ScrollMagic.Scene({
+    //             triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
+    //             triggerHook: 0.9,
+    //             duration: '100%'
+    //         })
+    //             .setTween(tween)
+    //             .addTo(controller);
+    //     });
+    // };
 
 
 
@@ -46,6 +46,28 @@
     //     });
     // };
     
+
+
+    var testimonialTextSlider = function ($scope, $) {
+        $(document).ready(function () {
+            var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
+
+            var controller = new ScrollMagic.Controller();
+
+            var tween = gsap.timeline()
+                .fromTo($boxes.eq(0), { x: '30vw' }, { x: '-40vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(1), { x: '31vw' }, { x: '-39vw', ease: 'none' }, 0)
+                .fromTo($boxes.eq(2), { x: '32vw' }, { x: '-38vw', ease: 'none' }, 0);
+
+            new ScrollMagic.Scene({
+                triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
+                triggerHook: 0.9,
+                duration: '100%'
+            })
+                .setTween(tween)
+                .addTo(controller);
+        });
+    };
     
 
     var boxAnimation2 = function ($scope, $) {
@@ -128,10 +150,81 @@
     };
 
 
+
+    var logoLoop = function ($scope, $) {
+        $(document).ready(function () {
+            const $text = $('.text');
+            const $logos = $('.logos');
+            const $logo = $('.logo');
+            const logoWidth = $logo.outerWidth(true);
+            const screenWidth = $(window).width();
+            const logosCount = $logo.length;
+            const totalWidth = logoWidth * logosCount;
+
+            // Clone logos for infinite scrolling effect
+            function cloneLogos() {
+                const minClones = Math.ceil(screenWidth / totalWidth) + 1; // Ensure enough clones to cover the screen width
+                for (let i = 0; i < minClones; i++) {
+                    $logos.append($logos.html());
+                }
+            }
+
+            cloneLogos();
+
+            // GSAP animation for scrolling logos
+            const tl = gsap.timeline({repeat: -1, paused: true});
+            tl.to('.logos', {
+                x: '-100%',
+                duration: 500, // Increased duration to slow down the animation
+                ease: 'linear',
+                modifiers: {
+                    x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth)
+                }
+            });
+
+            // ScrollMagic scene to start animation when section is in view
+            const controller = new ScrollMagic.Controller();
+            const scene = new ScrollMagic.Scene({
+                triggerElement: '.brands-section',
+                triggerHook: 0.8, // Start the animation when the section is 80% in the viewport
+            })
+                .on('enter', function () {
+                    tl.play();
+                })
+                .addTo(controller);
+
+            // Function to check logo position and adjust text opacity
+            function checkLogoPosition() {
+                const textRect = $text[0].getBoundingClientRect();
+                const logoRects = $('.logo img').map(function () {
+                    return this.getBoundingClientRect();
+                }).get();
+
+                let isOverlapping = logoRects.some(logoRect => {
+                    return logoRect.right >= textRect.left && logoRect.left <= textRect.right;
+                });
+
+                if (isOverlapping) {
+                    $text.css('opacity', '0.5');  // Reduce opacity
+                    $text.addClass('overlape')
+                } else {
+                    $text.css('opacity', '1');  // Reset opacity
+                    $text.removeClass('overlape')
+
+                }
+
+                requestAnimationFrame(checkLogoPosition);
+            }
+
+            checkLogoPosition();
+        });
+    };
+
     $(window).on('elementor/frontend/init', function () {
         elementorFrontend.hooks.addAction('frontend/element_ready/box-animation-3.default', testimonialTextSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/box-animation-2.default', boxAnimation2);
         // elementorFrontend.hooks.addAction('frontend/element_ready/text-roll.default', textLoop);
         elementorFrontend.hooks.addAction('frontend/element_ready/grid-animation.default', gridAnimation);
+        elementorFrontend.hooks.addAction('frontend/element_ready/logo-loop.default', logoLoop);
     });
 })(jQuery);
