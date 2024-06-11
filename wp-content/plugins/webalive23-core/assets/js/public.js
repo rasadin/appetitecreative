@@ -2,52 +2,6 @@
 (function ($) {
     "use strict";
 
-    // var testimonialTextSlider = function ($scope, $) {
-    //     $(document).ready(function () {
-    //         var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
-
-    //         var controller = new ScrollMagic.Controller();
-
-    //         var tween = gsap.timeline()
-    //             .fromTo($boxes.eq(0), { x: '5vw' }, { x: '-60vw', ease: 'none' }, 0)
-    //             .fromTo($boxes.eq(1), { x: '10vw' }, { x: '-55vw', ease: 'none' }, 0)
-    //             .fromTo($boxes.eq(2), { x: '15vw' }, { x: '-50vw', ease: 'none' }, 0);
-
-    //         new ScrollMagic.Scene({
-    //             triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
-    //             triggerHook: 0.9,
-    //             duration: '100%'
-    //         })
-    //             .setTween(tween)
-    //             .addTo(controller);
-    //     });
-    // };
-
-
-
-    // var testimonialTextSlider = function ($scope, $) {
-    //     $(document).ready(function () {
-    //         var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
-    
-    //         var controller = new ScrollMagic.Controller();
-    
-    //         var tween = gsap.timeline()
-    //             .fromTo($boxes.eq(0), { x: '20vw' }, { x: '-10vw', ease: 'none' }, 0)
-    //             .fromTo($boxes.eq(1), { x: '25vw' }, { x: '-7.5vw', ease: 'none' }, 0)
-    //             .fromTo($boxes.eq(2), { x: '30vw' }, { x: '-5vw', ease: 'none' }, 0);
-    
-    //         new ScrollMagic.Scene({
-    //             triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
-    //             triggerHook: 0.9,
-    //             duration: '100%'
-    //         })
-    //             .setTween(tween)
-    //             .addTo(controller);
-    //     });
-    // };
-    
-
-
     var testimonialTextSlider = function ($scope, $) {
         $(document).ready(function () {
             var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
@@ -68,7 +22,6 @@
                 .addTo(controller);
         });
     };
-    
 
     var boxAnimation2 = function ($scope, $) {
         $(document).ready(function () {
@@ -148,9 +101,6 @@
                 .addTo(controller);
         });
     };
-
-
-
     var logoLoop = function ($scope, $) {
         $(document).ready(function () {
             const $text = $('.text');
