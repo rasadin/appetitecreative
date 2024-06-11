@@ -678,6 +678,7 @@ body.home {
     font-size: 40px;
     font-weight: normal;
     line-height: 48px;
+    margin:0 0 8px 0;
 }
 .elementor-widget-grid-animation .dis {
     color: #000000;
@@ -685,3 +686,127 @@ body.home {
     font-weight: 400;
     line-height: 30px;
 }
+.scroll-list-item .loop-item {
+    display: inline-block;
+    padding: 0 10px;
+    min-width: auto;
+    box-sizing: border-box;
+    background-color: transparent;
+    margin: 5px;
+	position:relative;
+	font-size: 20px;
+    color: #000;
+}
+.scroll-list-item .loop-item:before {
+	content:'';
+	background-color:#000;
+	width:6px;
+	height:6px;
+	border-radius:50%;
+	display:inline-block;
+	margin-right: 9px;
+    vertical-align: middle;
+}
+.scroll-container-img .card {
+    background-color: transparent !important;
+    border: 0px solid rgba(0,0,0,.125) !important;
+    border-radius: 0;
+    min-width:408px;
+    display: block;
+    text-align: center;
+}
+.scroll-container-img .card-body {
+    padding: 0;
+    margin-top:15px;
+}
+.scroll-container-img .scroll-box.box2 {
+    position:relative;
+    z-index:1;
+}
+.scroll-container-img .scroll-box img{
+   height:261px;
+}
+.scroll-container-img .scroll-box.box2 img{
+   height:295px;
+}
+.scroll-container-img .scroll-box.box2 a{
+    background-color: #141414;
+    border:2px solid #141414;
+    color:#fff;
+}
+.scroll-container-img .scroll-box a{
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #141414;
+    background-color: #FFFFFF;
+    border:2px solid #141414;
+    border-radius: 32px 32px 32px 32px;
+    padding: 13px 35px 13px 35px;
+    display: inline-block;
+    text-decoration: none !important;
+    text-decoration:none !important;
+    font-size:16px;
+    font-family: "Inter", sans-serif !important;
+}
+
+/*button hover start*/
+.elimentor-button-black a{
+    position:relative;
+}
+.elimentor-button-black a:after{
+    content:'';
+    width:0px;
+    height: 100%;
+    left:0px;
+    background-color:#fff;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    border-radius: 32px 32px 32px 32px;
+    
+}
+.elimentor-button-black a:hover:after{
+    content:'';
+    width:100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out
+}
+.elimentor-button-black .elementor-button-text{
+    position:relative;
+    z-index:1;
+}
+.elimentor-button-black a:before{
+   content:'';
+   background: url(../img/hover-arrow.png) no-repeat center;
+   width:30px;
+   height:19px;
+   position:absolute;
+   z-index:2;
+   opacity:0;
+   left: 50%;
+     moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease
+}
+.elimentor-button-black a:hover:before{
+   content:'';
+   background: url(../img/hover-arrow.png) no-repeat center;
+   width:30px;
+   height:19px;
+   position:absolute;
+   z-index:2;
+   opacity:100;
+     moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease
+}
+/*button hover end*/
