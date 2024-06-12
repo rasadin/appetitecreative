@@ -101,6 +101,46 @@ class Widget_Logo_Loop extends Widget_Base
             </div>
         </section>
         <!-- Add Markup Ends -->
+
+        <style>
+            .brands-section {
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+                background-color: black;
+                padding: 20px;
+                position: relative;
+            }
+
+            .text {
+                color: white;
+                font-size: 36px;
+                font-weight: bold;
+                flex-shrink: 0;
+                transition: opacity 0.5s ease;
+                z-index: 1; /* Ensure text is on top */
+            }
+
+            .logos {
+                display: flex;
+                position: absolute;
+                left: 100%;
+                white-space: nowrap;
+            }
+
+            .logo {
+                display: inline-block;
+                min-width: 100px; /* Adjust this value as needed */
+                padding: 0 10px;
+            }
+
+            .logo img {
+                width: 100%;
+            }
+
+        </style>
+
+
         <?php
     }
 

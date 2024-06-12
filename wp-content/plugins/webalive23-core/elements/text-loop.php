@@ -97,7 +97,6 @@ class Widget_Text_Roll extends Widget_Base
             .loop-content {
                 display: inline-block;
                 white-space: nowrap;
-                animation: scrollLeft 20s linear infinite; /* Adjust the duration as needed */
             }
 
             .loop-item {
@@ -109,14 +108,6 @@ class Widget_Text_Roll extends Widget_Base
                 margin: 5px;
             }
 
-            @keyframes scrollLeft {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-50%);
-                }
-            }
 
         </style>
         <!-- Add Markup Starts -->

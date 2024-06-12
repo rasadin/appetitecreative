@@ -47,7 +47,7 @@
     var textLoop = function ($scope, $) {
         $(document).ready(function () {
             var $scrollContent = $scope.find('.loop-content');
-            var $scrollItems = $scope.find('.loop-item');
+            var $scrollItems = $scrollContent.find('.loop-item');
             var totalWidth = 0;
 
             // Calculate total width of all items
@@ -102,10 +102,13 @@
         });
     };
     var logoLoop = function ($scope, $) {
-        $(document).ready(function () {
-            const $text = $('.text');
-            const $logos = $('.logos');
-            const $logo = $('.logo');
+        if (window.elementorFrontend && window.elementorFrontend.isEditMode()) {
+            return; // Exit if in Elementor editor
+        }
+        $($scope).ready(function () {
+            const $text = $scope.find('.text');
+            const $logos = $scope.find('.logos');
+            const $logo = $scope.find('.logo');
             const logoWidth = $logo.outerWidth(true);
             const screenWidth = $(window).width();
             const logosCount = $logo.length;
@@ -119,7 +122,12 @@
                 }
             }
 
-            cloneLogos();
+            if ($logos.length && logoWidth > 0 && logosCount > 0) {
+                cloneLogos();
+            } else {
+                console.error('Invalid logos or logo dimensions');
+                return; // Exit if there's an issue with logos or dimensions
+            }
 
             // GSAP animation for scrolling logos
             const tl = gsap.timeline({repeat: -1, paused: true});
@@ -160,7 +168,6 @@
                 } else {
                     $text.css('opacity', '1');  // Reset opacity
                     $text.removeClass('overlape')
-
                 }
 
                 requestAnimationFrame(checkLogoPosition);
@@ -173,7 +180,7 @@
     $(window).on('elementor/frontend/init', function () {
         elementorFrontend.hooks.addAction('frontend/element_ready/box-animation-3.default', testimonialTextSlider);
         elementorFrontend.hooks.addAction('frontend/element_ready/box-animation-2.default', boxAnimation2);
-        // elementorFrontend.hooks.addAction('frontend/element_ready/text-roll.default', textLoop);
+        elementorFrontend.hooks.addAction('frontend/element_ready/text-roll.default', textLoop);
         elementorFrontend.hooks.addAction('frontend/element_ready/grid-animation.default', gridAnimation);
         elementorFrontend.hooks.addAction('frontend/element_ready/logo-loop.default', logoLoop);
     });
