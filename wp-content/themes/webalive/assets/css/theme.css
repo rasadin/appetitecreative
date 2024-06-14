@@ -175,6 +175,9 @@ header#masthead {
 /* Portrait and Landscape */
 @media only screen
 and (max-width: 1080px) {
+header#masthead {
+    padding-top: 89px;
+}
 .webalive-main-menu li a:hover {
     background-color: transparent;
 	color:#BF1422;
@@ -231,7 +234,7 @@ and (max-width: 1080px) {
         top: 90px;
         height: 100vh;
         border-bottom: 1px solid #fff;
-        padding: 12px 0 30px 0;
+        padding:20px 0 30px 0;
         border-top: 0;
     }
     .webalive-main-menu > li {
@@ -988,7 +991,9 @@ body.home {
 	color:#fff;
 	font-size:18px;
 }
-
+.admin-bar header#masthead {
+    padding-top: 44px;
+}
 .package-box span.number{
     font-family: 'Bebas Kai' !important;
     font-size:48px;

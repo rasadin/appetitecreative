@@ -233,6 +233,9 @@ footer.webalive-footer {
 .admin-bar header#masthead {
     padding-top:34px;
 }
+header#masthead {
+    padding-top: 80px;
+}
 }
 /*Mobile View Small*/
 @media only screen and (max-width:360px) {
