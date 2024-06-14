@@ -3,6 +3,9 @@
 .slider-section {
     padding-left:200px !important;
 }
+.slider-animation{
+	overflow-x: hidden !important;
+}
 }
 /*Laptop*/
 @media only screen and (max-width:1366px) {
@@ -10,15 +13,118 @@
 }
 /*Laptop*/
 @media only screen and (max-width:1280px) {
-
+.testimonial-content a.carousel-arrow.carousel-prev {
+    left: 44px;
+    right: auto;
+}
+.testimonial-content a.carousel-arrow.carousel-next{
+	left: auto;
+    right: 44px;
+}
+.testimonial-content i.fas.fa-angle-right {
+    background-size: 45px;
+}
+.testimonial-content i.fas.fa-angle-left {
+    background-size: 45px;
+}
 }
 /*Tab Landscape*/
 @media only screen and (max-width:1024px) {
-
+.scroll-list-item .loop-item {
+    font-size: 18px;
+}
+.scroll-list-item {
+    padding: 13px 10px;
+}
+.link-info {
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+.scroll-container .scroll-box {
+    min-width: 350px;
+}
+.testimonial-content .premium-testimonial-text-wrapper p {
+    font-size: 38px;
+    line-height: 48px;
+}
+.foo-content-first p {
+    font-size: 32px;
+    line-height: 52px;
+}
+.scroll-container .card-number {
+	font-size:89px !important;
+}
+.scroll-container .card-title {
+	font-size: 32px !important;
+	line-height: 35px;
+}
+.scroll-container .card-text p {
+	font-size: 20px;
+	line-height: 30px;
+}
+.scroll-container .card-text p {
+	font-size: 20px;
+	line-height: 30px;
+}
+.scroll-container .card-text p {
+	font-size: 20px;
+	line-height: 30px;
+}
+.link-info li a {
+    font-size: 14px;
+}
 }
 /*Tab Portrait*/
 @media only screen and (max-width:991px) {
+.copy-right-content,
+.foo-colume-2,
+.foo-colume-3,
+.foo-content-colume-1 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+}
+.footer-right-content{
+	-webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.menu-social-media-container ul {
+    justify-content: center;
+}
+.client-background{
+	background:transparent !important;
+}
+.testimonial-content .premium-testimonial-text-wrapper p {
+    font-size:28px;
+    line-height:43px;
+}
 
+.scroll-content.row {
+    gap:40px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.brands-section .text{
+    font-size: 57px;
+}
+
+.brands-section .text {
+    font-size: 58px !important;
+    padding-left: 4%;
+}
+.link-info {
+    gap: 15px;
+}
+.link-info li a {
+    font-size: 13px;
+}
+.bottom-foo-comtent {
+	padding-top: 12px;
+}
 }
 /*Tab Portrait*/
 @media only screen and (max-width:768px) {
@@ -27,6 +133,103 @@
 /*Mobile View Start*/
 @media only screen and (max-width:767px) {
 
+.testimonial-content i.fas.fa-angle-right {
+    background-size: 30px;
+}
+.testimonial-content i.fas.fa-angle-left {
+    background-size: 30px;
+}
+.testimonial-content a.carousel-arrow.carousel-next {
+    left: auto;
+    right: -8px;
+}
+.testimonial-content a.carousel-arrow.carousel-prev {
+        left: -8px;
+        right: auto;
+  }
+.testimonial-content .premium-testimonial-text-wrapper p {
+        font-size: 22px;
+        line-height:34px;
+  }
+.scroll-container .scroll-box {
+    min-width: 100%;
+    width: 100%;
+}
+.premium-testimonial-person-name {
+    font-size: 16px !important;
+}
+.testimonial-content .premium-testimonial-text-wrapper p {
+    font-size: 26px;
+    line-height: 41px;
+}
+.scroll-content.row {
+    gap:20px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+	text-align: center;
+}
+.link-info {
+    flex-wrap: wrap;
+	gap: 0px;
+	text-align:center;
+}
+.link-info li a {
+    font-size: 16px;
+}
+.link-info p {
+    margin: 0 0 2px 0;
+}
+footer.webalive-footer {
+    padding: 70px 0 20px 0;
+}
+.subscripe-content .subscribe-title, 
+.subscripe-content .subscribe-title p {
+    font-size: 23px;
+    color: #fff;
+    line-height: 33px;
+    padding: 0 15px;
+}
+.link-info li {
+    list-style-type: none;
+    width:100%;
+	margin-bottom:15px;
+}
+.foo-content-first p {
+    font-size: 26px;
+    line-height: 36px;
+}
+.bottom-foo-comtent {
+    padding-top: 12px;
+}
+.menu-social-media-container ul li a {
+    font-size: 23px;
+}
+.brands-section .text {
+    font-size: 35px !important;
+    padding-left: 1%;
+}
+.brands-section .logo {
+    min-width: 70px;
+}
+
+.webalive-brand-wrap {
+    height:80px !important;
+}
+.webalive-navbar{
+	min-height:auto;
+}
+.webalive-navbar-brand {
+    max-width: 107px;
+}
+.webalive-navbar-toggler {
+    top: 33px;
+}
+.webalive-main-menu {
+    top: 80px;
+    padding: 22px 0;
+}
+.admin-bar header#masthead {
+    padding-top:34px;
+}
 }
 /*Mobile View Small*/
 @media only screen and (max-width:360px) {

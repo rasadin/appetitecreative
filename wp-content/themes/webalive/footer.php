@@ -41,10 +41,10 @@
 				<div class="col-md-2 copy-right-content">
 					<?php dynamic_sidebar( 'copyright-widget-1' ); ?>
 				</div>
-				<div class="col-md-10 col-sm-6">
+				<div class="col-md-10 col-sm-6 footer-right-content">
 					<?php dynamic_sidebar( 'footer-widget-4' ); ?>
 				</div>
-				<div class="col-md-10 col-sm-6">
+				<div class="col-md-10 col-sm-6 footer-right-content">
 					<?php dynamic_sidebar( 'copyright-widget-2' ); ?>
 				</div>
 			</div>

@@ -8,6 +8,12 @@
 .navbar-toggler {
     border: 1px solid rgba(0,0,0,0.09);
 }
+.admin-bar header#masthead {
+    padding-top: 83px;
+}
+header#masthead {
+    padding-top: 115px;
+}
 .webalive-navbar {
     position: relative;
     width: 100%;
@@ -16,6 +22,8 @@
     align-items: center;
     min-height:115px;
 	background-color: #000;
+	position: fixed;
+    top: 0;
 }
 .webalive-menu-wrap {
     width: 100%;
@@ -47,7 +55,7 @@
 }
 .webalive-main-menu li a {
     display: block;
-    padding:10px 20px;
+    padding:10px 17px;
     font-size: 18px;
     color: #fff;
     font-weight: 600;
@@ -167,9 +175,22 @@
 /* Portrait and Landscape */
 @media only screen
 and (max-width: 1080px) {
-    .webalive-navbar {
-        background-color: #303030;
+.webalive-main-menu li a:hover {
+    background-color: transparent;
+	color:#BF1422;
+}
+.admin-bar header#masthead {
+    padding-top: 57px;
+}
+.webalive-navbar{
+	min-height:auto;
+}
+.login-menu a {
+    display: inline-block !important;
     }
+    .webalive-navbar {
+        background-color:#000000;
+    } 
     .webalive-navbar .container {
         padding: 0;
     }
@@ -189,8 +210,8 @@ and (max-width: 1080px) {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 60px;
-        border-bottom: 1px solid rgba(255,255,255, 0.7);
+        height:90px;
+        border-bottom:1px solid rgb(60 59 59 / 70%);
     }
     .webalive-navbar-toggler {
         display: block;
@@ -203,15 +224,23 @@ and (max-width: 1080px) {
     .webalive-main-menu {
         display: none;
         width: 100%;
-        padding: 0 15px;
-        background: #f1f1f1;
+        padding: 0 0px;
+        background: #000;
+		border-radius: 0px;
+        position: absolute;
+        top: 90px;
+        height: 100vh;
+        border-bottom: 1px solid #fff;
+        padding: 12px 0 30px 0;
+        border-top: 0;
     }
     .webalive-main-menu > li {
         display: block;
-        border-bottom: 1px solid rgba(255,255,255, 0.7);
+        border-bottom: 0px solid rgba(255,255,255, 0.7);
+		text-align:center;
     }
     .webalive-main-menu li a {
-        padding: 10px 0px;
+        padding: 10px 20px;
     }
     .webalive-main-menu .menu-item-has-children:after {
         display: none;
@@ -314,7 +343,7 @@ and (max-width: 1080px) {
     .webalive-navbar-toggler {
         display: block;
         right: 10px;
-        top: 20px;
+        top:37px;
         width: 24px;
         position: absolute;
         cursor: pointer;
@@ -388,6 +417,70 @@ footer.webalive-footer {
 	margin: 0 auto;
 	position: relative;
 }
+
+.get-in-touch-circle a:after{
+    content:'';
+    width:200px;
+	height:200px;
+    left:0px;
+    background-color:#fff;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    border-radius:50%;
+    opacity:0;
+    
+}
+.get-in-touch-circle a:hover:after{
+    content:'';
+    width:100%;
+	height:200px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    opacity:100;
+}
+
+.get-in-touch-circle a:before{
+   content:'';
+   background: url(../img/right-arrow.svg) no-repeat center;
+   width:24px;
+   height:19px;
+   background-size:24px;
+   position:absolute;
+   z-index:2;
+   opacity:0;
+   left: 50%;
+     moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease;
+    margin-left: -6px;
+}
+
+.get-in-touch-circle a:hover:before{
+   content:'';
+   background: url(../img/right-arrow.svg) no-repeat center;
+   width:24px;
+   height:19px;
+   background-size:24px;
+   position:absolute;
+   z-index:2;
+   opacity:100;
+     moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease
+}
+
+/*button hover end*/
+
 /*.get-in-touch-circle a:hover:before{
 	content:'';
 	position:absolute;
@@ -413,7 +506,7 @@ footer.webalive-footer {
 	font-weight:600;
 	color:#F9FAFB;
 	text-transform:uppercase;
-	font-family: "Inter", sans-serif;
+	font-family: "Inter", sans-serif !important;
 }
 .link-info{
 	margin:0;
@@ -537,10 +630,11 @@ footer.webalive-footer {
 .testimonial-content .premium-testimonial-job{
 	display:none;
 }
-.testimonial-content .premium-testimonial-person-name{
-	font-size:21px;
-	font-family: "Inter", sans-serif;
-	font-weight:400;
+.testimonial-content .premium-testimonial-person-name {
+    font-size: 21px !important;
+    font-family: "Inter", sans-serif !important;
+    font-weight: 500;
+    margin-top: 20px;
 }
 .testimonial-content a.carousel-arrow{
 	width: 69px !important;
@@ -672,13 +766,18 @@ body.home {
 	padding:30px 30px 10px 30px;
 	margin-bottom: 27px;
 }
-.elementor-widget-grid-animation h2{
+.elementor-widget-grid-animation .title{
     color: #000000;
     font-family: 'Bebas Kai' !important;
     font-size: 40px;
     font-weight: normal;
     line-height: 48px;
     margin:0 0 8px 0;
+}
+.elementor-widget-grid-animation p{
+	font-size:20px !important;
+	color:#000;
+	margin-top: 12px;
 }
 .elementor-widget-grid-animation .dis {
     color: #000000;
@@ -692,9 +791,9 @@ body.home {
     min-width: auto;
     box-sizing: border-box;
     background-color: transparent;
-    margin: 5px;
+    margin:0px;
 	position:relative;
-	font-size: 20px;
+	font-size: 24px;
     color: #000;
 }
 .scroll-list-item .loop-item:before {
@@ -778,15 +877,17 @@ body.home {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out
 }
+
 .elimentor-button-black .elementor-button-text{
     position:relative;
     z-index:1;
 }
 .elimentor-button-black a:before{
    content:'';
-   background: url(../img/hover-arrow.png) no-repeat center;
+   background: url(../img/right-arrow.svg) no-repeat center;
    width:30px;
    height:19px;
+   background-size:24px;
    position:absolute;
    z-index:2;
    opacity:0;
@@ -796,11 +897,13 @@ body.home {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease
 }
+
 .elimentor-button-black a:hover:before{
    content:'';
-   background: url(../img/hover-arrow.png) no-repeat center;
+   background: url(../img/right-arrow.svg) no-repeat center;
    width:30px;
    height:19px;
+   background-size:24px;
    position:absolute;
    z-index:2;
    opacity:100;
@@ -809,6 +912,7 @@ body.home {
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease
 }
+
 /*button hover end*/
 
 .case-study-list-box li.elementor-icon-list-item.elementor-inline-item {
@@ -841,4 +945,73 @@ body.home {
 	background-color:#000; 
 	padding:20px 30px;
 	font-family: 'Bebas Kai' !important;
+}
+.brands-section .text{
+	font-size:110px;
+	font-family: 'Bebas Kai' !important;
+	font-weight:normal !important;
+	padding-left:18%;
+}
+
+.brands-section .text.overlape {
+    font-size: 110px;
+    font-family: 'Bebas Kai' !important;
+    font-weight: normal !important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    color: #000;
+	opacity:0.3 !important;
+}
+.brands-section .logos {
+    display: flex;
+    position: absolute;
+    left: 100%;
+    white-space: nowrap;
+    z-index: 9;
+	align-items:center;
+}
+.brands-section  .logo img {
+    width: auto;
+}
+.accordion-content .eael-adv-accordion .eael-accordion-list .eael-accordion-header.active .fa-toggle {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    z-index: 10;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.accordion-content .eael-adv-accordion .eael-accordion-list:last-child .elementor-tab-title{
+    border-bottom:0px !important;
+}
+.accordion-content .eael-accordion-content p{
+	color:#fff;
+	font-size:18px;
+}
+
+.package-box span.number{
+    font-family: 'Bebas Kai' !important;
+    font-size:48px;
+}
+.package-box .elementor-image-box-title {
+    margin: 0;
+    font-size:28px;
+    font-family: 'Bebas Kai' !important;
+    font-weight: normal !important;
+}
+.package-box .elementor-image-box-description {
+    font-size: 19px;
+    line-height: 32px;
+    padding-top: 12px;
+}
+.webalive-site-content {
+    min-height:350px;
+}
+section.error-404.not-found {
+    text-align: center;
+    margin-top: 130px;
+    margin-bottom: 130px;
+}
+.leading-grid-animation{
+	overflow-x:hidden !important;
 }
