@@ -6,6 +6,9 @@
 .slider-animation{
 	overflow-x: hidden !important;
 }
+.brands-section .text {
+    padding-left: 2%;
+}
 }
 /*Laptop*/
 @media only screen and (max-width:1366px) {
