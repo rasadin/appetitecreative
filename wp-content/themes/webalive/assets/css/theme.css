@@ -1023,3 +1023,43 @@ section.error-404.not-found {
 .admin-bar header.entry-header {
     padding-top: 50px;
 }
+
+/*case Study css*/
+.content-container {
+    max-width: 1224px;
+	width:100%
+}
+.content-container h1{
+	font-size: 110px;
+    font-weight: normal;
+    line-height: 132px;
+	color:#fff;
+	font-family: 'Bebas Kai' !important;
+	max-width:1040px;
+}
+.project-goal-list ul{
+	display: flex;
+    flex-wrap: wrap;
+	margin:0;
+	padding:0;
+	gap:20px;
+}
+.project-goal-list ul li{
+	color:#000;
+	padding: 18px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 10px;
+	list-style-type:none;
+}
+.project-goal-list ul li span{
+	font-size:18px !important;
+}
+.project-goal-list ul strong {
+    font-size: 40px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 10px;
+    display: inline-block;
+}
+/*case Study  css end*/
