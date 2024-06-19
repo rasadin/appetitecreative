@@ -244,6 +244,14 @@ body .testimonial-content .premium-testimonial-person-name {
     font-size: 45px;
     line-height:48px;
 }
+
+.case-study-list-box li.elementor-icon-list-item.elementor-inline-item strong {
+    font-size: 32px;
+}
+.case-study-list-box li.elementor-icon-list-item.elementor-inline-item {
+    width: 100%;
+    justify-content: center;
+}
 }
 /*Mobile View Small*/
 @media only screen and (max-width:360px) {

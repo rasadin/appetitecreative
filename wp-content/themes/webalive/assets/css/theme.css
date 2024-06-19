@@ -394,6 +394,8 @@ footer.webalive-footer {
     background-color: #141414;
     min-height:320px;
 	padding: 114px 0 20px 0;
+    z-index: 1;
+    position: relative;
 }
 .foo-content-first p{
 	color:#E2D5C8;
@@ -1063,3 +1065,9 @@ section.error-404.not-found {
     display: inline-block;
 }
 /*case Study  css end*/
+
+ul.elementor-icon-list-items.elementor-inline-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap:15px 0px;
+}
