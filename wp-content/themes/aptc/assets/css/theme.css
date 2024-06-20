@@ -1074,3 +1074,19 @@ ul.elementor-icon-list-items.elementor-inline-items {
 .single-case-studies{
 	background-color:#000;
 }
+.mail-to{
+	margin-top:25px;
+}
+.mail-to a{
+	color:#fff;
+	font-size:30px;
+	line-height:28px;
+	font-weight:400;
+	border-bottom:1px solid #fff;
+	padding-bottom:20px;
+	display:block;
+	text-decoration:none !important;
+}
+.mail-to a:hover{
+	color:#BF1422;
+}

@@ -131,6 +131,16 @@
 body .testimonial-content .premium-testimonial-person-name {
     font-size: 15px !important;
 }
+.mail-to a {
+    color: #fff;
+    font-size: 24px;
+    line-height: 23px;
+    padding-bottom: 11px;
+    display: inline;
+}
+.menu-social-media-container {
+    margin-top: 43px;
+}
 }
 /*Tab Portrait*/
 @media only screen and (max-width:768px) {
@@ -138,7 +148,10 @@ body .testimonial-content .premium-testimonial-person-name {
 }
 /*Mobile View Start*/
 @media only screen and (max-width:767px) {
-
+.mail-to a {
+    font-size: 24px;
+    line-height: 23px;
+}
 .testimonial-content i.fas.fa-angle-right {
     background-size: 30px;
 }
