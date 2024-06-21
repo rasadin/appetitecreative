@@ -156,7 +156,7 @@
             const tl = gsap.timeline({repeat: -1, paused: true});
             tl.to('.logos', {
                 x: '-100%',
-                duration: 500, // Increased duration to slow down the animation
+                duration: 150, // Increased duration to slow down the animation
                 ease: 'linear',
                 modifiers: {
                     x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth)
