@@ -2,6 +2,28 @@
 (function ($) {
     "use strict";
 
+    // var testimonialTextSlider = function ($scope, $) {
+    //     $(document).ready(function () {
+    //         var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
+
+    //         var controller = new ScrollMagic.Controller();
+
+    //         var tween = gsap.timeline()
+    //             .fromTo($boxes.eq(0), { x: '30vw' }, { x: '-40vw', ease: 'none' }, 0)
+    //             .fromTo($boxes.eq(1), { x: '31vw' }, { x: '-39vw', ease: 'none' }, 0)
+    //             .fromTo($boxes.eq(2), { x: '32vw' }, { x: '-38vw', ease: 'none' }, 0);
+
+    //         new ScrollMagic.Scene({
+    //             triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
+    //             triggerHook: 0.9,
+    //             duration: '100%'
+    //         })
+    //             .setTween(tween)
+    //             .addTo(controller);
+    //     });
+    // };
+
+
     var testimonialTextSlider = function ($scope, $) {
         $(document).ready(function () {
             var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
@@ -9,14 +31,15 @@
             var controller = new ScrollMagic.Controller();
 
             var tween = gsap.timeline()
-                .fromTo($boxes.eq(0), { x: '30vw' }, { x: '-40vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(1), { x: '31vw' }, { x: '-39vw', ease: 'none' }, 0)
-                .fromTo($boxes.eq(2), { x: '32vw' }, { x: '-38vw', ease: 'none' }, 0);
+            .fromTo($boxes.eq(0), { x: '10vw' }, { x: '-90vw', ease: 'none' }, 0)
+            .fromTo($boxes.eq(1), { x: '11vw' }, { x: '-91vw', ease: 'none' }, 0)
+            .fromTo($boxes.eq(2), { x: '12vw' }, { x: '-92vw', ease: 'none' }, 0);
+        
 
             new ScrollMagic.Scene({
                 triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
                 triggerHook: 0.9,
-                duration: '100%'
+                duration: '500%'
             })
                 .setTween(tween)
                 .addTo(controller);
