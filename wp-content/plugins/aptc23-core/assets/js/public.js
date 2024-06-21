@@ -31,9 +31,9 @@
             var controller = new ScrollMagic.Controller();
 
             var tween = gsap.timeline()
-            .fromTo($boxes.eq(0), { x: '10vw' }, { x: '-90vw', ease: 'none' }, 0)
-            .fromTo($boxes.eq(1), { x: '11vw' }, { x: '-91vw', ease: 'none' }, 0)
-            .fromTo($boxes.eq(2), { x: '12vw' }, { x: '-92vw', ease: 'none' }, 0);
+            .fromTo($boxes.eq(0), { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0)
+            .fromTo($boxes.eq(1), { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0)
+            .fromTo($boxes.eq(2), { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0);
         
 
             new ScrollMagic.Scene({
