@@ -738,7 +738,7 @@ body.home {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .scroll-container .scroll-box {
-    min-width:390px;
+    min-width:370px;
     width: 100%;
 }
 .scroll-container .card-number {
@@ -766,7 +766,7 @@ body.home {
     background-clip: border-box;
     border: 0px solid rgba(0,0,0,.125);
     border-radius:0px;
-	min-height:532px;
+	min-height:555px;
 }
 .elementor-widget-grid-animation .col-md-6{
 	background-color: #FFFFFF;

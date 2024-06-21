@@ -22,29 +22,55 @@
     //             .addTo(controller);
     //     });
     // };
+    
+    
+    
+    // var testimonialTextSlider = function ($scope, $) {
+    //     $(document).ready(function () {
+    //         var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
 
+    //         var controller = new ScrollMagic.Controller();
 
-    var testimonialTextSlider = function ($scope, $) {
+    //         var tween = gsap.timeline()
+    //         .fromTo($boxes.eq(0), { x: '10vw' }, { x: '-90vw', ease: 'none' }, 0)
+    //         .fromTo($boxes.eq(1), { x: '11vw' }, { x: '-91vw', ease: 'none' }, 0)
+    //         .fromTo($boxes.eq(2), { x: '12vw' }, { x: '-92vw', ease: 'none' }, 0);
+        
+
+    //         new ScrollMagic.Scene({
+    //             triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
+    //             triggerHook: 0.9,
+    //             duration: '500%'
+    //         })
+    //             .setTween(tween)
+    //             .addTo(controller);
+    //     });
+    // };
+    
+    
+    
+        var testimonialTextSlider = function ($scope, $) {
         $(document).ready(function () {
             var $boxes = $scope.find('.scroll-box'); // Ensure boxes are within the scope
 
             var controller = new ScrollMagic.Controller();
 
             var tween = gsap.timeline()
-            .fromTo($boxes.eq(0), { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0)
-            .fromTo($boxes.eq(1), { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0)
-            .fromTo($boxes.eq(2), { x: '2vw' }, { x: '-10vw', ease: 'none' }, 0);
+            .fromTo($boxes.eq(0), { x: '6vw' }, { x: '-90vw', ease: 'none' }, 0)
+            .fromTo($boxes.eq(1), { x: '2vw' }, { x: '-91vw', ease: 'none' }, 0)
+            .fromTo($boxes.eq(2), { x: '-2vw' }, { x: '-92vw', ease: 'none' }, 0);
         
 
             new ScrollMagic.Scene({
                 triggerElement: $boxes.eq(2)[0], // Use the third box as the trigger element
                 triggerHook: 0.9,
-                duration: '500%'
+                duration: '1500%'
             })
                 .setTween(tween)
                 .addTo(controller);
         });
     };
+    
 
     var boxAnimation2 = function ($scope, $) {
         $(document).ready(function () {
@@ -156,7 +182,7 @@
             const tl = gsap.timeline({repeat: -1, paused: true});
             tl.to('.logos', {
                 x: '-100%',
-                duration: 150, // Increased duration to slow down the animation
+                duration: 90, // Increased duration to slow down the animation
                 ease: 'linear',
                 modifiers: {
                     x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth)
