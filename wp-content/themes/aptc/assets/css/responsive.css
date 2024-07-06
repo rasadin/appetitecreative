@@ -1,4 +1,7 @@
 /*Laptop*/
+.lattop-animation-section-view{
+	display:none !important;
+}
 @media only screen and (max-width:1440px) {
 .slider-section {
     padding-left:200px !important;
@@ -9,12 +12,19 @@
 .brands-section .text {
     padding-left: 2%;
 }
-.carousel-slide img {
-    height: 251px !important;
+.mail-to a {
+   font-size: 25px;
 }
-.client-review-section-right {
-    padding-right: 20px;
+.slider-animation{
+  padding-bottom:20px !important;
+  margin-bottom: -16px !important;
 }
+.lattop-animation-section-view{
+	display:block !important;
+}
+.slider-box-section{
+	display:none !important;	
+	}
 }
 /*Laptop*/
 @media only screen and (max-width:1366px) {
@@ -35,9 +45,6 @@
 }
 .testimonial-content i.fas.fa-angle-left {
     background-size: 45px;
-}
-.service-review-section-right {
-    padding-left: 45px;
 }
 }
 /*Tab Landscape*/
@@ -85,33 +92,6 @@
 }
 .link-info li a {
     font-size: 14px;
-}
-.infinite-image-carousel-container .carousel-content {
-    padding: 30px;
-}
-.carousel-slide img {
-    height: 137px !important;
-}
-.service-service {
-    background-color: #F1F1F1;
-    padding-left: 25px;
-    padding-top: 40px;
-}
-.service-review-section-title {
-    font-size: 56px;
-}
-.client-review-section-name {
-    font-size: 73px;
-    line-height: 39px;
-}
-.client-review-section-dis p {
-    font-size: 22px;
-    line-height: 36px;
-}
-.client-review-section-right {
-    padding-left: 5px;
-    padding-top: 144px;
-    padding-right: 20px;
 }
 }
 /*Tab Portrait*/

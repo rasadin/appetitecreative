@@ -36,6 +36,7 @@ class UniteCreatorAPIIntegrations{
 	const CURRENCY_EXCHANGE_DEFAULT_CACHE_TIME = 60;
 
 	const GOOGLE_EVENTS_FIELD_EMPTY_CREDENTIALS = "google_events_empty_credentials";
+	const GOOGLE_EVENTS_FIELD_TIMEZONE = "google_events_timezone";
 	const GOOGLE_EVENTS_FIELD_CALENDAR_ID = "google_events_calendar_id";
 	const GOOGLE_EVENTS_FIELD_RANGE = "google_events_range";
 	const GOOGLE_EVENTS_FIELD_ORDER = "google_events_order";
@@ -63,6 +64,7 @@ class UniteCreatorAPIIntegrations{
 	const GOOGLE_SHEETS_DEFAULT_CACHE_TIME = 10;
 
 	const WEATHER_FORECAST_FIELD_EMPTY_API_KEY = "weather_forecast_empty_api_key";
+	const WEATHER_FORECAST_FIELD_LOCALE = "weather_forecast_locale";
 	const WEATHER_FORECAST_FIELD_COUNTRY = "weather_forecast_country";
 	const WEATHER_FORECAST_FIELD_CITY = "weather_forecast_city";
 	const WEATHER_FORECAST_FIELD_UNITS = "weather_forecast_units";
@@ -595,6 +597,12 @@ class UniteCreatorAPIIntegrations{
 				"default" => self::GOOGLE_EVENTS_DEFAULT_LIMIT,
 			),
 			array(
+				"id" => self::GOOGLE_EVENTS_FIELD_TIMEZONE,
+				"type" => UniteCreatorDialogParam::PARAM_TEXTFIELD,
+				"text" => __("Timezone", "unlimited-elements-for-elementor"),
+				"desc" => __("Example: Europe/Rome, UTC, -06:30, +08:45. Leave empty for timezone set in wp settings", "unlimited-elements-for-elementor"),
+			),
+			array(
 				"id" => self::GOOGLE_EVENTS_FIELD_CACHE_TIME,
 				"type" => UniteCreatorDialogParam::PARAM_TEXTFIELD,
 				"text" => __("Cache Time", "unlimited-elements-for-elementor"),
@@ -813,7 +821,8 @@ class UniteCreatorAPIIntegrations{
 		$eventsLimit = $this->getParam(self::GOOGLE_EVENTS_FIELD_LIMIT, self::GOOGLE_EVENTS_DEFAULT_LIMIT);
 		$eventsLimit = intval($eventsLimit);
 		$cacheTime = $this->getCacheTimeParam(self::GOOGLE_EVENTS_FIELD_CACHE_TIME, self::GOOGLE_EVENTS_DEFAULT_CACHE_TIME);
-
+		$timezone = $this->getParam(self::GOOGLE_EVENTS_FIELD_TIMEZONE);
+				
 		$orderFieldMap = array(
 			self::GOOGLE_EVENTS_ORDER_DATE_ASC => "date",
 			self::GOOGLE_EVENTS_ORDER_DATE_DESC => "date",
@@ -846,9 +855,9 @@ class UniteCreatorAPIIntegrations{
 
 		if(isset($eventsRange["end"]) === true)
 			$eventsParams["timeMax"] = $eventsRange["end"];
-
-		$events = $calendarService->getEvents($calendarId, $eventsParams);
-
+					
+		$events = $calendarService->getEvents($calendarId, $eventsParams, $timezone);
+		
 		foreach($events as $event){
 			$orderValue = ($orderField === "date")
 				? $event->getStartDate(self::FORMAT_MYSQL_DATETIME)
@@ -1048,6 +1057,14 @@ class UniteCreatorAPIIntegrations{
 				"default" => self::WEATHER_FORECAST_UNITS_METRIC,
 			),
 			array(
+				"id" => self::WEATHER_FORECAST_FIELD_LOCALE,
+				"type" => UniteCreatorDialogParam::PARAM_TEXTFIELD,
+				"text" => __("Language Code", "unlimited-elements-for-elementor"),
+				"default" => "",
+				"desc" => __("2 digits of language code. for example: 'fr' (french) for the list of all codes: <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'>Press Here</a>. Leave empty for auto select. ", "unlimited-elements-for-elementor")
+			),
+			
+			array(
 				"id" => self::WEATHER_FORECAST_FIELD_CACHE_TIME,
 				"type" => UniteCreatorDialogParam::PARAM_TEXTFIELD,
 				"text" => __("Cache Time", "unlimited-elements-for-elementor"),
@@ -1068,30 +1085,33 @@ class UniteCreatorAPIIntegrations{
 		$city = $this->getRequiredParam(self::WEATHER_FORECAST_FIELD_CITY, "City");
 		$units = $this->getRequiredParam(self::WEATHER_FORECAST_FIELD_UNITS, "Units");
 		$cacheTime = $this->getCacheTimeParam(self::WEATHER_FORECAST_FIELD_CACHE_TIME, self::WEATHER_FORECAST_DEFAULT_CACHE_TIME);
-
+		$locale = $this->getParam(self::WEATHER_FORECAST_FIELD_LOCALE, "");
+		
 		$weatherService = new UEOpenWeatherAPIClient($this->getOpenWeatherApiKey());
 		$weatherService->setCacheTime($cacheTime);
-
-		$forecasts = $weatherService->getForecasts($country, $city, $units);
-
+		
+		$forecasts = $weatherService->getForecasts($country, $city, $units, $locale);
+		
 		$currentForecast = UniteFunctionsUC::getVal($forecasts, "current");
 		$hourlyForecasts = UniteFunctionsUC::getVal($forecasts, "hourly");
 		$dailyForecasts = UniteFunctionsUC::getVal($forecasts, "daily");
-
+		
 		$data = array(
 			"current" => $this->getWeatherForecastCurrentItem($currentForecast),
 			"hourly" => $this->getWeatherForecastHourlyItems($hourlyForecasts),
 			"daily" => $this->getWeatherForecastDailyItems($dailyForecasts),
 		);
-
+		
+		
 		return $data;
 	}
-
+	
+	
 	/**
 	 * get weather forecasts basic item
 	 */
 	private function getWeatherForecastBasicItem($forecast){
-
+		
 		$item = array(
 			"id" => $forecast->getId(),
 			"date" => $forecast->getDate(self::FORMAT_MYSQL_DATETIME),
@@ -1111,7 +1131,7 @@ class UniteCreatorAPIIntegrations{
 			"snow" => $forecast->getSnow(),
 			"uvi" => $forecast->getUvi(),
 		);
-
+		
 		return $item;
 	}
 

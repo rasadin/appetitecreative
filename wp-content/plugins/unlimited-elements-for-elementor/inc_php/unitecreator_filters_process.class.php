@@ -398,11 +398,16 @@ class UniteCreatorFiltersProcess{
 	private function parseStrTerms($strFilters){
 
 		$arrUrlKeys = $this->getUrlPartsKeys();
-
-		$taxSapSign = UniteFunctionsUC::getVal($arrUrlKeys, "tax_sap","~");
+		
+		$taxSapSign = UniteFunctionsUC::getVal($arrUrlKeys, "tax_sap");
+		
+		//fallback, if ~ sign exists - change to it
+		
+		if($taxSapSign != "~" && strpos($strFilters,"~") !== false)
+			$taxSapSign = "~";
 
 		$strFilters = trim($strFilters);
-
+				
 		$arrFilters = explode(";", $strFilters);
 
 		//fill the terms
@@ -1128,9 +1133,9 @@ class UniteCreatorFiltersProcess{
 
 				UniteFunctionsUC::throwError("Cannot output widget content for widget: $widgetType");
 			}
-
+						
 		}
-
+		
 		//get settings values
 
 		if(self::$isGutenberg == false)
@@ -1138,7 +1143,7 @@ class UniteCreatorFiltersProcess{
 		else
 			$arrSettingsValues = self::$objGutenberg->getSettingsFromBlock($arrElement);
 
-
+		
 		//init addon
 
 		$addon = new UniteCreatorAddon();
@@ -1174,32 +1179,27 @@ class UniteCreatorFiltersProcess{
 			$objAjaxSearch->initCustomAjaxSeach($addon);
 		}
 
+		GlobalsUnlimitedElements::$currentRenderingAddon = $addon;
+		
 		//------ get the html output
-
+		
 		//collect the debug html
 		if(self::$showDebug == false)
 			ob_start();
-
+		
 		$objOutput = new UniteCreatorOutput();
-
+		
 	    $isDebugFromGet = HelperUC::hasPermissionsFromQuery("ucfieldsdebug");
-
+		
 	    if($isDebugFromGet == true)
 	        $objOutput->showDebugData(true);
-
+		
 		$objOutput->initByAddon($addon);
-
-	    if($isDebugFromGet == true){
-
-	    	HelperProviderUC::showLastQueryPosts();
-
-	    	dmp("End Here");
-	    	exit();
-	    }
-
+		
+		
 		if(self::$showDebug == false){
 			$htmlDebug = ob_get_contents();
-
+			
 			ob_end_clean();
 	  	}
 
@@ -1208,9 +1208,9 @@ class UniteCreatorFiltersProcess{
 
 		//get only items
 		if($isGrid == true){
-
+			
 			$arrHtml = $objOutput->getHtmlItems();
-
+			
 			$output["html"] = UniteFunctionsUC::getVal($arrHtml, "html_items1");
 			$output["html2"] = UniteFunctionsUC::getVal($arrHtml, "html_items2");
 
@@ -1222,14 +1222,28 @@ class UniteCreatorFiltersProcess{
 			$htmlBody = $objOutput->getHtmlOnly();
 
 			$htmlBody = $this->processAjaxHtmlOutput($htmlBody);
-
+			
 			$output["html"] = $htmlBody;
 		}
-
+		
 
 		if(!empty($htmlDebug))
 			$output["html_debug"] = $htmlDebug;
-
+		
+		if($isDebugFromGet == true){
+	    	
+			HelperProviderUC::showLastQueryPosts();			
+			
+			$htmlDebug = $objOutput->getHtmlDebug();
+			
+			
+			echo $htmlDebug;
+			dmp("End Here");
+			exit();
+		}
+		
+		GlobalsUnlimitedElements::$currentRenderingAddon = null;
+		
 		return($output);
 	}
 
@@ -1249,7 +1263,7 @@ class UniteCreatorFiltersProcess{
 		$this->contentWidgetsDebug = array();
 
 		foreach($arrIDs as $elementID){
-
+			
 			$output = $this->getContentWidgetHtml($arrContent, $elementID, $isGrid);
 
 			$htmlDebug = UniteFunctionsUC::getVal($output, "html_debug");
@@ -1391,10 +1405,9 @@ class UniteCreatorFiltersProcess{
 		//init widget by post id and element id
 
 		self::$platform = UniteFunctionsUC::getPostGetVariable("platform","",UniteFunctionsUC::SANITIZE_TEXT_FIELD);
-
+		
 		self::$isGutenberg = (self::$platform == "gutenberg");
-
-
+		
 		$layoutID = UniteFunctionsUC::getPostGetVariable("layoutid","",UniteFunctionsUC::SANITIZE_KEY);
 		$elementID = UniteFunctionsUC::getPostGetVariable("elid","",UniteFunctionsUC::SANITIZE_KEY);
 
@@ -1414,7 +1427,7 @@ class UniteCreatorFiltersProcess{
 		$isModeReplace = UniteFunctionsUC::strToBool($isModeReplace);
 
 		GlobalsProviderUC::$isUnderAjax = true;
-
+		
 		self::$isModeReplace = $isModeReplace;
 
 		//if($isModeFiltersInit == true)
@@ -1423,7 +1436,10 @@ class UniteCreatorFiltersProcess{
 		if(self::$isGutenberg == false)
 			$arrContent = HelperProviderCoreUC_EL::getElementorContentByPostID($layoutID);
 		else{	//gutenberg
-
+			
+			if(class_exists("UniteCreatorGutenbergIntegrate") == false)
+				UniteFunctionsUC::throwError("no gutenberg platform enabled");
+			
 			self::$objGutenberg = new UniteCreatorGutenbergIntegrate();
 
 			$arrContent = self::$objGutenberg->getPostBlocks($layoutID);
@@ -1504,7 +1520,7 @@ class UniteCreatorFiltersProcess{
 		}
 
 		$htmlDebug = UniteFunctionsUC::getVal($arrHtmlWidget, "html_debug");
-
+		
 		$addWidgetsHTML = $this->getContentWidgetsHTML($arrContent, $addElIDs);
 
 		$syncWidgetsHTML = $this->getContentWidgetsHTML($arrContent, $syncIDs, true);
@@ -1544,11 +1560,11 @@ class UniteCreatorFiltersProcess{
 		$outputData["query_data"] = $arrQueryData;
 		$outputData["query_ids"] = $strQueryPostIDs;
 
-
+		
 		if(self::$showEchoDebug == true){
 
 			dmp("The posts: ");
-
+			
 			HelperUC::$operations->putPostsCustomFieldsDebug(GlobalsProviderUC::$lastPostQuery->posts);
 
 			dmp("showing the debug");
@@ -1557,34 +1573,6 @@ class UniteCreatorFiltersProcess{
 		}
 
 		HelperUC::ajaxResponseData($outputData);
-
-	}
-
-	private function _______DYNAMIC_POPUP__________(){}
-
-	/**
-	 * put dynamic popup cache
-	 */
-	private function putDynamicPopupCache(){
-
-		$postID = 10767;
-
-		$templateID = 9532;
-
-		$widgetID = "max111";
-
-		$post = get_post($postID);
-
-		$template = get_post($templateID);
-
-		//dmp($template);exit();
-
-		HelperProviderCoreUC_EL::putListingItemTemplate_post($post, $templateID, $widgetID);
-
-
-
-		dmp("dynamic popup cache");
-		exit();
 
 	}
 
@@ -1685,7 +1673,7 @@ class UniteCreatorFiltersProcess{
 			return(false);
 
 		self::$isScriptAdded = true;
-
+		
 		$arrData = $this->getFiltersJSData();
 
 		$strData = UniteFunctionsUC::jsonEncodeForClientSide($arrData);
@@ -1860,8 +1848,15 @@ class UniteCreatorFiltersProcess{
 	 */
 	private function getUrlPartsKeys(){
 
+		$taxSapSetting = HelperProviderCoreUC_EL::getGeneralSetting("tax_sap_sign");
+
+		$taxSapSetting = apply_filters("ue_filters_url_key__taxonomy_sap", $taxSapSetting);
+		
+		if(empty($taxSapSetting))
+			$taxSapSetting = "~";
+		
 		$arrParts = array();
-		$arrParts["tax_sap"] = apply_filters("ue_filters_url_key__taxonomy_sap","~");
+		$arrParts["tax_sap"] = apply_filters("ue_filters_url_key__taxonomy_sap", $taxSapSetting);
 
 		return($arrParts);
 	}
@@ -2737,13 +2732,8 @@ s	 */
 					$objWoo->outputCartFragments();
 
 				break;
-				case "dynamicpopupcache":
-
-					$this->putDynamicPopupCache();
-
-				break;
 				case "custom":
-
+					
 					do_action("uc_custom_front_ajax_action");
 
 					//if not catch - will throw error

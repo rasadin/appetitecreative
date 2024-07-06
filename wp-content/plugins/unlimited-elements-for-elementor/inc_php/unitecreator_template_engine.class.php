@@ -95,6 +95,7 @@ class UniteCreatorTemplateEngineWork{
 
 				//get dynamic settings from the widget if exists
 				$arrDynamicSettings = apply_filters("ue_get_current_widget_settings", array());
+				
 			}
 		}
 
@@ -848,9 +849,9 @@ class UniteCreatorTemplateEngineWork{
 	 * get post author
 	 */
 	public function getPostAuthor($authorID, $getMeta = false, $getAvatar = false){
-
+		
 		$arrUserData = UniteFunctionsWPUC::getUserDataById($authorID, $getMeta, $getAvatar);
-
+		
 		return($arrUserData);
 	}
 
@@ -1174,7 +1175,7 @@ class UniteCreatorTemplateEngineWork{
 			case "get_wc_gallery":
 
 				$productID = $arg1;
-
+				
 				$objWoo = UniteCreatorWooIntegrate::getInstance();
 				$arrGallery = $objWoo->getProductGallery($productID);
 
@@ -1358,9 +1359,9 @@ class UniteCreatorTemplateEngineWork{
 			case "get_product_attributes":
 
 				$objWoo = UniteCreatorWooIntegrate::getInstance();
-
+				
 				$arrAttributes = $objWoo->getProductAttributes($arg1);
-
+				
 				return($arrAttributes);
 
 			break;
@@ -1502,9 +1503,9 @@ class UniteCreatorTemplateEngineWork{
 				}
 			break;
 			case "get_variable":
-
-				$getVarValue = UniteFunctionsUC::getGetVar($arg1,"",UniteFunctionsUC::SANITIZE_TEXT_FIELD);
-
+				
+				$getVarValue = UniteFunctionsUC::getGetVar($arg1,"",UniteFunctionsUC::SANITIZE_NOTHING);
+				
 				return($getVarValue);
 			break;
 			case "wpp_get_page_views":	//get post views using wordpress popular posts plugin

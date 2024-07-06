@@ -1298,11 +1298,10 @@ class L_ThePlus_Video_Player extends Widget_Base {
 		}
 
 		$vid_color = ! empty( $settings['video_color'] ) ? $settings['video_color'] : '';
-
 		if ( ! empty( $vid_color ) ) {
 			if ( 'vimeo' === $video_type ) {
 				$video_color       = str_replace( '#', '', $vid_color );
-				$vimeo_frame_attr .= '&amp;color=' . $video_color . ';';
+				$vimeo_frame_attr .= '&amp;color=' . esc_attr( $video_color ) . ';';
 			}
 		}
 

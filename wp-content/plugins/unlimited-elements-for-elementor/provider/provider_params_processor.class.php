@@ -11,7 +11,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 	
 	const SHOW_DEBUG_QUERY = false;
 	const SHOW_DEBUG_POSTLIST_QUERIES = false;
-
+	
 	private static $arrPostTypeTaxCache = array();
 	private $arrCurrentPostIDs = array();
 	private $itemsImageSize = null;
@@ -775,13 +775,12 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 			$arrData["alias"] = UniteFunctionsUC::getVal($arrPost, "post_name");
 			$arrData["author_id"] = UniteFunctionsUC::getVal($arrPost, "post_author");
 			$arrData["post_type"] = UniteFunctionsUC::getVal($arrPost, "post_type");
-
+			
 			$password = $post->post_password;
 			if(!empty($password))
 				$content = "";
 			else
 				$content = UniteFunctionsWPUC::getPostContent($post);
-			
 			
 			$arrData["content"] = $content;
 			
@@ -824,7 +823,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 
 					if($isDynamicEnabled == true){
 						$dynamicLinkAddClass = " uc-open-popup";
-						$dynamicLinkAttr = " href='javascrpit:void(0)' data-post-link='{$link}'";
+						$dynamicLinkAttr = " href='javascrpit:void(0)' data-post-link='{$link}' data-postid='$postID'";
 					}
 					else{
 
@@ -1413,7 +1412,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 
 		$showDebugQuery = UniteFunctionsUC::getVal($value, "{$name}_show_query_debug");
 		$showDebugQuery = UniteFunctionsUC::strToBool($showDebugQuery);
-
+		
 		if(self::SHOW_DEBUG_QUERY == true)
 			$showDebugQuery = true;
 		
@@ -1581,7 +1580,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 
 		if($limit > 1000)
 			$limit = 1000;
-
+		
 
 		//------ Exclude ---------
 
@@ -2155,13 +2154,18 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 					$arrQueryBase = UniteFunctionsWPUC::getCurrentQueryVars();
 
 				break;
+				default:	//apply some filter for custom post id's
+					
+					$customPostINIDs = apply_filters("ue_get_custom_includeby_postids", null, $includeby, $limit);
+										
+				break;
 			}
 
 		}
-
+		
 		//include id's
 		$arrPostInIDs = UniteFunctionsUC::mergeArraysUnique($arrProductsCrossSells, $arrProductsUpSells, $arrRecentProducts);
-
+		
 		if(!empty($arrIDsOnSale)){
 
 			if(!empty($arrPostInIDs))		//intersect with previous id's
@@ -2190,14 +2194,17 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 			$makePostINOrder = true;
 		}
 
-
-
 		if(!empty($arrIDsFromContent)){
 			$arrPostInIDs = $arrIDsFromContent;
 			$makePostINOrder = true;
 		}
-
-
+		
+		if(!empty($customPostINIDs)){
+			$arrPostInIDs = $customPostINIDs;
+			$makePostINOrder = true;
+		}
+		
+		
 		//make order as "post__id"
 
 		if($makePostINOrder == true){
@@ -2218,12 +2225,12 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 
 		if(!empty($arrPostInIDs) && !empty($arrPostsNotInTest) && is_array($arrPostsNotInTest))
 			$arrPostInIDs = array_diff($arrPostInIDs, $arrPostsNotInTest);
-
-
+		
+		
 		if(!empty($arrPostInIDs)){
 			$args["post__in"] = $arrPostInIDs;
 		}
-
+		
 
 		//------ get woo  related products ------
 
@@ -2520,7 +2527,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 	 * show modify callbacks for debug
 	 */
 	private function showPostsDebugCallbacks($isForWoo = false){
-
+		
 		$arrActions = UniteFunctionsWPUC::getFilterCallbacks("posts_pre_query");
 
 		dmp("Query modify callbacks ( posts_pre_query ):");
@@ -3773,7 +3780,8 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 				break;
 				case "current_post_meta":
 				case "current_product_variations":
-
+				case "current_product_gallery":
+					
 					//item is ID
 					$galleryItem = $this->getGalleryItem($item, null, $params);
 					
@@ -3978,6 +3986,11 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 			case "current_product_variations":
 				
 				$data[$name."_items"] = UniteCreatorWooIntegrate::getCurrentProductVariationImageItems();
+				
+			break;
+			case "current_product_gallery":
+				
+				$data[$name."_items"] = UniteCreatorWooIntegrate::getCurrentProductGalleryIDs();
 				
 			break;
 			case "instagram":
