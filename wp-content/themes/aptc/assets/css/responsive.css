@@ -157,6 +157,21 @@ body .testimonial-content .premium-testimonial-person-name {
 .menu-social-media-container {
     margin-top: 43px;
 }
+.contact-form-section .wpcf7-form-control-wrap .wpcf7-list-item label {
+    font-size: 16px;
+}
+.contact-form-section select, .contact-form-section input[type="email"], .contact-form-section input[type="text"] {
+    font-size: 22px;
+}
+.contact-form-section textarea {
+    height: 108px;
+    font-size: 22px;
+}
+.service-title p {
+    font-size: 25px;
+    color: RGBA(0, 0, 0, 0.3);
+    font-weight: 300;
+}
 }
 /*Tab Portrait*/
 @media only screen and (max-width:768px) {
@@ -283,6 +298,26 @@ body .testimonial-content .premium-testimonial-person-name {
 .case-study-list-box li.elementor-icon-list-item.elementor-inline-item {
     width: 100%;
     justify-content: center;
+}
+.contact-form-section .two-part {
+    display: grid;
+    grid-template-columns: repeat(1,minmax(0,1fr));
+    grid-gap: 0 25px;
+    margin-top:50px;
+}
+.btn-download-black {
+    width: 100px;
+    height: 100px;
+	bottom: 10px;
+    right: 15px;
+}
+p.download-new {
+    display: none;
+}
+.btn-download-black .unlock-text {
+    font-size: 15px;
+    line-height: 17px;
+    margin-bottom:0px;
 }
 }
 /*Mobile View Small*/

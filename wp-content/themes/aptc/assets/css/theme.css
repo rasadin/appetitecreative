@@ -1092,3 +1092,281 @@ ul.elementor-icon-list-items.elementor-inline-items {
 .mail-to a:hover{
 	color:#BF1422;
 }
+.email-section p{
+    color:#fff;
+    margin:0;
+    padding:0;
+}
+.email-section p a{
+    color:#fff;
+}
+
+  color: #2D2D2D;
+    font-size: 24px;
+    border: 0;
+    padding: 19px 0 17px 0;
+    font-weight: 700;
+    margin-top: 38px;
+    cursor: pointer;
+    min-width:232px;
+	border-radius:0;
+ }
+.wpcf7 form.invalid .wpcf7-response-output, 
+.wpcf7 form.unaccepted .wpcf7-response-output, 
+.wpcf7 form.payment-required .wpcf7-response-output {
+    border-color: #fff;
+    color: #fff;
+	border: 1px solid #fff;
+    margin: 0;
+	font-size: 16px;
+}
+.contact-form-section .form-head p{
+	color: #999;
+    font-size:120px;
+    font-weight: 700;
+    margin-bottom: 45px;
+    font-family: 'Thunder' !important;
+}
+.contact-form-section .usd-radio p,
+.contact-form-section .service-radio p {
+    color: #000;
+	font-size: 22px;
+    font-weight: 400;
+	margin-bottom:15px;
+}
+
+.contact-form-section .wpcf7-list-item {
+    display:block;
+    margin: 0 16px 0 0;
+    color:#111111;
+}
+.contact-form-section .two-radio {
+    display: flex;
+    gap: 20px;
+}
+.service-title p{
+   font-size:36px;
+   color:RGBA(0, 0, 0, 0.3);
+   font-weight:300;
+}
+.contact-form-section .wpcf7-form-control-wrap .wpcf7-list-item label{
+   padding:2px 28px 5px 20px !important;
+   border:0px solid #000;
+   border-radius:50px;
+   font-size:19px;
+   cursor:pointer;
+   font-weight:600;
+}
+.contact-form-section .wpcf7-form-control-wrap .wpcf7-list-item label.active{
+   border:0px solid #474747;
+   background-color:#000;
+   color:#fff;
+}
+.contact-form-section .wpcf7-form-control-wrap input[type=radio] {
+   width: 4px;
+   opacity: 0;
+}
+.wpcf7-not-valid-tip {
+    color: #dc3232;
+    font-size: 15px;
+    font-weight: normal;
+    display: block;
+}
+.contact-form-section .two-part {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-gap: 0 25px;
+	margin-top:63px;
+}
+.contact-form-section select,
+.contact-form-section input[type="email"],
+.contact-form-section input[type="text"]{
+	width: 100%;
+    font-size: 36px;
+    color:#111111;
+    font-weight:300;
+}
+.contact-form-section select{
+	color: #999;
+    border: 0px;
+    border-radius: 0px;
+    padding: 0px 0px 15px 0px;
+    background: transparent;
+    border-bottom: 1px solid #474747;
+    outline: 0;
+}
+.contact-form-section textarea{
+   height:168px;
+   font-size: 36px;
+   color: #111111;
+   font-weight: 300;
+   margin-top: 25px;
+}
+.contact-form-section .details-part {
+    margin-top:50px;
+}
+.contact-form-section input[type="submit"]{
+	background: #000000;
+    color: #ffffff;
+    font-size: 24px;
+    border: 0;
+    padding: 19px 0 17px 0;
+    font-weight: 700;
+    margin-top: 38px;
+    cursor: pointer;
+    min-width:232px;
+	border-radius: 50px;
+ }
+/*contact from end*/
+
+.about-us-service-section .scroll-container .card {
+    min-height: auto;
+	background-color: transparent;
+}
+.about-us-service-section .scroll-container .card-number {
+    font-size: 68px !important;
+    font-family: 'Bebas Kai' !important;
+    color: #ffffff;
+    line-height: 88px;
+}
+.about-us-service-section .scroll-container .card-title {
+    font-size: 28px !important;
+    font-family: 'Bebas Kai' !important;
+    color: #ffffff !important;
+    line-height: 40px;
+}
+.about-us-service-section .scroll-content.row {
+    gap: 96px;
+    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.banner-bg-fixed {
+    background-attachment: fixed !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-download-black {
+    width:165px;
+    height:165px;
+    border-radius: 50%;
+    background-color: #252525;
+    color: #fff !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    position: fixed;
+    z-index: 5;
+    bottom: 71px;
+    right: 48px;
+    line-height: 19px;
+    border: 0px !important;
+    cursor: pointer;
+    outline: 0;
+    text-align: center;
+    padding: 13px;
+}
+.btn-download-black .unlock-text{
+	font-size:21px;
+	font-weight:700;
+	color:#BC1623;
+	line-height:23px;
+    margin-bottom: 10px;
+}
+.btn-download-black p{
+	margin-bottom:0;
+	color:#fff;
+	font-size: 13px;
+}
+.download-new p{
+	font-size:12px;
+}
+
+.btn-download-black:before {
+    content: '';
+    background: url(../img/download-icon.svg) no-repeat center;
+    width: 30px;
+    height:30px;
+    background-size: 24px;
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease;
+}
+.btn-download-black:after {
+    content: '';
+    width:100%;
+    height: 100%;
+    left: 0px;
+    background-color: #BF1422;
+    position: absolute;
+    top: 0;
+     moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease;
+    border-radius: 32px 32px 32px 32px;
+    border-radius: 50%;
+     opacity:0;
+}
+.btn-download-black:hover:before{
+	opacity:100;
+}
+.btn-download-black:hover:after {
+    content: '';
+    width: 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    opacity:100;
+}
+.form-input{
+   position:relative;
+}
+.form-input input:focus~label, .form-input input:valid~label, .form-input textarea:focus~label, .form-input textarea:valid~label {
+    top: 0;
+    transform: scale(.6);
+}
+.form-input~input:focus label{
+    top: 0;
+    transform: scale(.6);
+}
+.form-input label {
+    position: absolute;
+    top:29px;
+    left: 0;
+    color: #0000004d;
+    transform-origin: left;
+    transition: all .3s ease;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 300;
+    display:none;
+}
+.form-input input:focus~.after, .form-input textarea:focus~.after {
+    background-position: 0 0;
+}
+.form-input:focus label {
+top: 0;
+transform: scale(.6);
+}
+.form-input .after {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right,black 50%,transparent 50%);
+    background-color: #0000004d;
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: all .6s ease;
+}
+
