@@ -764,10 +764,13 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
+	color: #fff;
+    border: 0px;
+    border-radius: 0px;
+    padding: 0px 0px 15px 0px;
+    background: transparent;
+    border-bottom: 1px solid #474747;
+    outline: 0;
 }
 
 input[type="text"]:focus,

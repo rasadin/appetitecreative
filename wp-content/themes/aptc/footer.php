@@ -18,7 +18,13 @@
 		 */
 		do_action( 'aptc_before_footer' );
 	?>
-
+<a class="btn-download-black">
+ <div class="box-btn">
+ <p class="unlock-text">Unlock <br> knowledge!</p> 
+ <p class="download-new">Download our new <br> E-Book on Connected Packaging <br> for FREE.</p>
+</div>
+<div class="hover-icon"></div>
+</a>
 	<footer class="aptc-footer">
 		<!-- Widgets -->
 		<div class="container">
@@ -58,6 +64,8 @@
 		do_action( 'aptc_after_footer' );
 	?>
 </div><!-- #page -->
+
+
 
 <?php wp_footer(); ?>
 
