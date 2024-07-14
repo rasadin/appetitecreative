@@ -1,12 +1,4 @@
-<li class="alm-item<?php if ( ! has_post_thumbnail() ) { echo ' no-img'; } ?>">
-	<?php
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail( 'alm-thumbnail' );
-		}
-	?>
-	<h3>
-		<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-	</h3>
-	<p class="entry-meta"><?php the_time( 'F d, Y' ); ?></p>
-	<?php the_excerpt(); ?>
-</li>
+<li data-cursor-content="View" class="" style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url() ); ?>');">
+        <h2 data-scroll-speed="2" class=""><?php the_title(); ?></h2>
+        <a href="<?php the_permalink(); ?>" class="absolute inset-0"></a>
+    </li>
