@@ -1370,7 +1370,13 @@ transform: scale(.6);
     background-position: 100% 0;
     transition: all .6s ease;
 }
+.description-content p{
+	color:#fff !important;
+	font-size: 20px;
+    font-weight: normal;
+    line-height: 30px;
 
+}
 /*update new thumnail slider start*/
     @keyframes scroll {
         0% {
@@ -1451,3 +1457,18 @@ transform: scale(.6);
         height: 100%;
         text-align: center;
     }/*update new thumnail slider end*/
+	
+.alm-listing li h2 {
+    background-color: #000;
+}
+.alm-listing a:nth-child(even){
+    margin-top:40px !important;
+}
+.alm-listing li {
+    height: 371px !important;
+}
+.alm-listing {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap:20px 53px !important;
+}

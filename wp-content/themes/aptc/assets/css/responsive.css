@@ -319,6 +319,9 @@ p.download-new {
     line-height: 17px;
     margin-bottom:0px;
 }
+.alm-listing a:nth-child(even){
+    margin-top:0px !important;
+}
 }
 /*Mobile View Small*/
 @media only screen and (max-width:360px) {
