@@ -266,7 +266,7 @@ require get_template_directory() . '/inc/plugins/tgm-plugin-activation.php';
  */
 function aptc_login_screen_logo() {
 	echo '<style type="text/css">
-	.login h1 a {background-image: url('.get_bloginfo( 'template_directory' ).'/assets/img/login-screen.png) !important; height: auto !important; }
+	.login h1 a {background-image: url('.get_bloginfo( 'template_directory' ).'/assets/img/login-screen.png) !important; height: 43px !important; }
 	</style>';
 }
 add_action( 'login_head', 'aptc_login_screen_logo' );

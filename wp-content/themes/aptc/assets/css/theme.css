@@ -1462,7 +1462,7 @@ transform: scale(.6);
     background-color: #000;
 }
 .alm-listing a:nth-child(even){
-    margin-top:40px !important;
+    margin-top:50px !important;
 }
 .alm-listing li {
     height: 371px !important;
@@ -1470,5 +1470,41 @@ transform: scale(.6);
 .alm-listing {
     display: grid;
     grid-template-columns: 1fr;
-    gap:20px 53px !important;
+    gap:20px 80px !important;
+}
+.alm-listing li h2 {
+    background-color:#000 !important;
+	padding: 8px 24px !important;
+	text-transform:uppercase !important;
+	font-size:28px !important;
+}
+.alm-listing li:hover h2 {
+    background-color:#fff !important;
+}
+.alm-btn-wrap .alm-load-more-btn {
+    background: #BF1422 !important;
+    border-radius: 26px !important;
+    font-size: 18px !important;
+    font-weight: 500;
+    height: 47px !important;
+    line-height: 1;
+    margin: 0;
+    padding: 0 28px  0px 40px!important;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s ease;
+    user-select: none;
+    width: auto;
+}
+.alm-btn-wrap .alm-load-more-btn.loading:before {
+    height: 20px !important;
+    left: 14px !important;
+    margin: 14px 0px !important;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: width .5s ease-in-out;
+    width: 20px !important;
+    z-index: 0;
 }
